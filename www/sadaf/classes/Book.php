@@ -42,4 +42,18 @@ class Book
         }
     }
 
+    public function getAverageRating($ISBN) {
+        $mysql = pdodb::getInstance();
+        $query = "select avg(Rating.rating) 
+                    as rating
+                    from Rating, Books
+                    where Rating.ISBN = ?
+                    group by Rating.ISBN;";
+        $mysql->Prepare($query);
+        $res = $mysql->ExecuteStatement($ISBN);
+        if ($rec = $res->fetch()) {
+            return $rec["rating"];
+        }
+    }
+
 }

@@ -7,6 +7,7 @@ CREATE TABLE Books(
     title text,
     dates Date,
     image BLOB,
+    author text,
     AccountSpecID int(11),
     FOREIGN KEY (AccountSpecID) REFERENCES AccountSpecs(AccountSpecID),
 	PRIMARY KEY(ISBN)

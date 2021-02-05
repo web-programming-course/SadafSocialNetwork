@@ -1,0 +1,10 @@
+CREATE TABLE Comments(
+	ISBN varchar(255),
+    ID int NOT NULL AUTO_INCREMENT,
+    WAccountSpecID int(11),
+    FOREIGN KEY (WAccountSpecID) REFERENCES AccountSpecs(AccountSpecID),
+    FOREIGN KEY (ISBN) REFERENCES Books(ISBN),
+	PRIMARY KEY(ISBN , ID)
+)ENGINE = MYISAM;
+
+

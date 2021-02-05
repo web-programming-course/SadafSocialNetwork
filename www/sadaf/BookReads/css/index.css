@@ -41,12 +41,9 @@
 
 .logo{
     text-align: center;
-    font-size: 4.5vw;
+    font-size: 3vw;
     max-block-size: 5vh;
     color: white;
-
-    margin-top: auto;
-    margin-bottom: auto;
 
 }
 
@@ -55,9 +52,7 @@
 }
 
 .header{
-    height: 6vw;
-    min-height: 5vh;
-    max-height: 6vw;
+    height: 4vw;
 }
 
 .search-bar{

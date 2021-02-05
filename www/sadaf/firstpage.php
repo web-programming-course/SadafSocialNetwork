@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <meta name="author" content="Kasra Korminejad - Shiva Radmanesh - Sahar Sheikholeslami - Ali Nasiri - Mohsen Mahmoud zadeh">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./bootstrap/css/bootstrap.min.css">
-    <link rel="stylesheet" href="./css/index.css"
+    <link rel="stylesheet" href="./BookReads/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="./BookReads/css/index.css">
 </head>
 <body class="bg-light">
     <div class="container-fluid">
@@ -13,12 +13,7 @@
 
         <!-- <div class="row bg-dark header"> -->
         <div class="row bg-dark header">
-            <div class="input-group  mb-3 col-3">
-                <input type="text" class="form-control search-bar" placeholder="Search" aria-label="Search" aria-describedby="button-addon2">
-                <div class="input-group-append search-button">
-                  <button class="btn btn-outline-secondary btn-sm" type="submit" id="button-addon2">Go</button>
-                </div>
-            </div>
+            <div class="input-group  mb-3 col-3"></div>
 
             <div class="col-6 logo">
                 Book<b id="logo-bold">Reads</b>
@@ -34,7 +29,7 @@
 
 
         <div id="page-cover" class="row">
-            <img src="./asset/images/bg_img2.jpg" style="width: 100%;">
+            <img src="./BookReads/asset/images/bg_img2.jpg" style="width: 100%;">
         </div>
 
 
@@ -66,8 +61,9 @@
             else if($i == 2)
                 $html_text = "<div class='row book-row'><div class='row book-row'><div class='col-4 book-container'><img class='rounded book' src='".$rec['image']."'><br><a href='".$rec['like']."' class='link-primary text-center book-text'>'".$rec['title']."'</a></div></div>";
             $i++;
-        }
 
+            echo $html_text;
+        }
 
         ?>
     </div> <!-- container div--> 

@@ -66,4 +66,14 @@ class Book
         }
     }
 
+    public function findByAuthor($author) {
+        $mysql = pdodb::getInstance();
+        $query = "SELECT * FROM Books WHERE author=?";
+        $mysql->Prepare($query);
+        $res = $mysql->ExecuteStatement($author);
+        if ($rec = $res->fetch()) {
+            return $rec;
+        }
+    }
+
 }

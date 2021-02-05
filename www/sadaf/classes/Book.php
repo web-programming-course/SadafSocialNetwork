@@ -56,4 +56,14 @@ class Book
         }
     }
 
+    public function findByTitle($title) {
+        $mysql = pdodb::getInstance();
+        $query = "SELECT * FROM Books WHERE title=?";
+        $mysql->Prepare($query);
+        $res = $mysql->ExecuteStatement($title);
+        if ($rec = $res->fetch()) {
+            return $rec;
+        }
+    }
+
 }

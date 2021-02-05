@@ -22,4 +22,24 @@ class Book
         $this->files = $files;
     }
 
+    public function loadFromDB($ISBN) {
+        $mysql = pdodb::getInstance();
+        $query = "SELECT * FROM sadaf.books WHERE ISBN=?";
+        $mysql->Prepare($query);
+        $res = $mysql->ExecuteStatement($ISBN);
+        if ($rec = $res->fetch()) {
+            $this->ISBN = $rec["ISBN"];
+            $this->title = $rec["title"];
+            $this->descriptions = $rec["descriptions"];
+            $this->numberOfPage = $rec["numberOfPages"];
+            $this->publisher = $rec["publisher"];
+            $this->files = $rec["files"];
+            $this->dates = $rec["dates"];
+            $this->image = $rec["image"];
+            $this->author = $rec["author"];
+        } else {
+            $this->ISBN = -1;
+        }
+    }
+
 }

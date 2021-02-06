@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="author" content="Kasra Korminejad - Shiva Radmanesh - Sahar Sheikholeslami - Ali Nasiri - Mohsen Mahmoud zadeh">
+    <meta name="author" content="Shiva Radmanesh - Kasra Korminejad - Sahar Sheikholeslami - Ali Nasiri - Mohsen Mahmoud zadeh">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./BookReads/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="./BookReads/css/index.css"
@@ -40,18 +40,63 @@
         </div>
 
 
+        <?php
+            include "header.inc.php";
+
+            $mysql = pdodb::getInstance();
+            if (isset($_REQUEST['findByAuthor'])){
+
+                $query = 'SELECT * FROM Books WHERE author="'.$_REQUEST['author'].'"';
+                $mysql->Prepare($query);
+                $res = $mysql->Execute($query); 
+
+                $title = [];
+                $isbn = [];
+                $img_path = [];
+
+                $count = 0;
+                while($rec = $res->fetch()){
+                    $title[$count] = $rec['title'];
+                    $isbn[$count] = $rec['ISBN'];
+                    $img_path[$count] = $rec['image'];
+                    
+                    $count++;
+                }
+            }
+
+            if (isset($_REQUEST['findByTitle'])){
+                $query = 'SELECT * FROM Books WHERE author="'.$_REQUEST['title'].'"';
+                $mysql->Prepare($query);
+                $res = $mysql->Execute($query); 
+
+                $title = [];
+                $isbn = [];
+                $img_path = [];
+
+                $count = 0;
+                while($rec = $res->fetch()){
+                    $title[$count] = $rec['title'];
+                    $isbn[$count] = $rec['ISBN'];
+                    $img_path[$count] = $rec['image'];
+                    
+                    $count++;
+                }
+            }
+
+
+        ?>
 
         <div class="row">
             <form class="form-inline" style="text-align: center;">
                 <div class="form-group mb-2">
-                    <p>Search based on author
+                    <p>Search based on name of the authour
                     <label for="staticEmail2" class="sr-only">Find by author's name:</label>
                 </div>
                 <div class="form-group mx-sm-3 mb-2">
                     <label for="inputPassword2" class="sr-only">Find by book</label>
-                    <input type="text" class="form-control" id="inputPassword2" placeholder="Password">
+                    <input type="text" class="form-control" id="author"  name="author" placeholder="Password">
                 </div>
-                <button type="submit" class="btn btn-success mb-2">Confirm identity</button>
+                <button type="submit" class="btn btn-success mb-2" name="findByAuthor" id="findByAuthor">Search</button>
             </form>
         </div>
 
@@ -59,17 +104,29 @@
         <div class="row">
             <form class="form-inline" style="text-align: center;">
                 <div class="form-group mb-2">
-                    <p>Search based on author
+                    <p>Search based on title
                     <label for="staticEmail2" class="sr-only">Find by author's name:</label>
                 </div>
                 <div class="form-group mx-sm-3 mb-2">
-                    <label for="inputPassword2" class="sr-only">Find by book</label>
-                    <input type="text" class="form-control" id="inputPassword2" placeholder="Password">
+                    <label for="inputPassword2" class="sr-only">Find by title</label>
+                    <input type="text" class="form-control" id="title" name="title" placeholder="Password">
                 </div>
-                <button type="submit" class="btn btn-success mb-2">Confirm identity</button>
+                <button type="submit" class="btn btn-success mb-2" name="findByTitle" id="findByTitle">Search</button>
             </form>
         </div>
 
+
+
+        
+        <?php
+
+            echo "<hr>";
+            for($i = 0; $i < $count; $i++){
+                echo "<div class='row'><div class='col-4'><a>'".$title[$i]."'</a></div>";
+                echo "<div class='col-4'><img src='.".$img_path[$i]."' style='width: 12vw;'></div></div><hr>";
+            }
+        ?>
+        
         
         
 

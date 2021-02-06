@@ -2,7 +2,7 @@
 
 <?php
 include "header.inc.php";
-HTMLBegin();
+//HTMLBegin();
 ?>
 
 

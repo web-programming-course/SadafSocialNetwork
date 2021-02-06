@@ -1,7 +1,7 @@
 
 <?php
 include "header.inc.php";
-HTMLBegin();
+//HTMLBegin();
 ?>
 
 <!DOCTYPE html>

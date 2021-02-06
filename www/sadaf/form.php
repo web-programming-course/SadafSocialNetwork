@@ -1,6 +1,12 @@
 <!DOCTYPE html>
 
 <?php
+include "header.inc.php";
+HTMLBegin();
+?>
+
+
+<?php
 
 // $servername = "localhost";
 // $username = "user1";
@@ -23,31 +29,48 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $pdf_name = $_FILES["pdf"]["name"];
         move_uploaded_file($_FILES["pdf"]["tmp_name"], "UploadFile/".$pdf_name);
         $file_path = "UploadFile/".$pdf_name;
-        echo "upload";
+        //echo "upload";
     }
-    else
-      echo "no";
 
     if(isset($_FILES['img']) && $_FILES['img']['name'] != ""){
         $img_content = file_get_contents($_FILES["img"]["tmp_name"]);
         $img_name = $_FILES["img"]["name"];
         move_uploaded_file($_FILES["img"]["tmp_name"], "UploadFile/".$img_name);
         $img_path = "UploadFile/".$img_name;
-        echo "upload2";
+        //echo "upload2";
     }
-    else
-        echo "no2";
-  
+    $query = "SELECT * FROM  Books  WHERE ISBN="."'$isbn'" ;
+
+    $mysql = pdodb::getInstance();
+    echo $query;
+    $res = $mysql->Execute($query);
+    echo $query;
+    echo $res->num_rows;
+    echo "wer";
+    if (mysqli_num_rows($res)==0){
+        echo "not repeat\n";
+        $query = "INSERT INTO Books (title , ISBN , publisher , numberofPage  ,  Author , dates  ,  descriptions , image , files , AccountSpecID)
+                    VALUES ( '$title'  , '$isbn' , '$publisher' , $page , '$author' , '$date' , '$desc' , '$img_path' , '$file_path' , $user)";
+        echo $query;
+        $res = $mysql->Execute($query);
+    }
+    else{
+        echo "repeated";
+    }
 }
 
-// check for duplicate
-// $query = "SELECT * FROM  Books  WHERE `ISBN`='$isbn'";
-//     $result = mysql_query($query);
-// if (!mysql_num_rows($result))
+//check for duplicate
+
+
+//if (!mysql_num_rows($res)){
+//echo "not repeat";
 // INSERT QUERY
 //INSERT INTO Books (title , ISBN , publisher , numberofPage  ,  Author , dates  ,  descriptions , image , files , AccountSpecID)
 // VALUES ( $title  , $isbn , $publisher , $page , $author , $date , $desc , $img_path , $file_path , $user);"
-
+//}
+//else{
+  //  echo "repeated";
+//}
 
 
 

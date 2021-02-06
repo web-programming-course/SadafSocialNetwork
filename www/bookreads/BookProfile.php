@@ -19,32 +19,22 @@ include "classes/Book.php";
 //
 
 if (isset($_REQUEST["ISBN"])) {
-    // if (is_numeric($_REQUEST["ISBN"])) {
-    //     $ISBN = $_REQUEST["ISBN"];
-    // } else {
-    //     echo "Wrong Parameter!";
-    //     die();
-    // }
-    $ISBN = $_REQUEST["ISBN"];
-    $object = new Book();
-    echo $object;
-    // $ISBN = "0743477553";
-    $object->loadFromDB($ISBN);
-    $rating = $object->getAverageRating($ISBN);
-    if($object->ISBN > 0) {
-        $ISBN = $object->ISBN;
-        $title = $object->title;
-        $author = $object->author;
-        $descriptions = $object->descriptions;
-        $numberOfPage = $object->numberOfPage;
-        $publisher = $object->publisher;
-        $dates = $object->dates;
-        $image = $object->image;
-        $files = $object->files;
 
-    } else {
-        echo "Not Found!";
-    }
+    $ISBN = $_REQUEST["ISBN"];
+
+    $object = new Book();
+    // $ISBN = "0743477553";
+    $rating = $object->getAverageRating($ISBN);
+    $ISBN = $object->ISBN;
+    $object->loadFromDB($ISBN);
+    $title = $object->title;
+    $author = $object->author;
+    $descriptions = $object->descriptions;
+    $numberOfPage = $object->numberOfPage;
+    $publisher = $object->publisher;
+    $dates = $object->dates;
+    $image = $object->image;
+    $files = $object->files;
 }
 
 

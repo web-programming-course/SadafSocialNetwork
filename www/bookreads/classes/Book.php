@@ -14,7 +14,7 @@ class Book
     public $dates;
 
 
-    public function __construct($ISBN=-1, $title="", $publisher="", $author="", $files) {
+    public function __construct($ISBN=-1, $title="", $publisher="", $author="", $files="file") {
         $this->ISBN = $ISBN;
         $this->title = $title;
         $this->publisher = $publisher;
@@ -24,9 +24,9 @@ class Book
 
     public function loadFromDB($ISBN) {
         $mysql = pdodb::getInstance();
-        $query = "SELECT * FROM sadaf.books WHERE ISBN=?";
-        $mysql->Prepare($query);
-        $res = $mysql->ExecuteStatement($ISBN);
+        $query = "SELECT * FROM sadaf.books WHERE ISBN=".$this->ISBN;
+        //$mysql->Prepare($query);
+        $res = $mysql->Execute($query);
         if ($rec = $res->fetch()) {
             $this->ISBN = $rec["ISBN"];
             $this->title = $rec["title"];
@@ -38,7 +38,7 @@ class Book
             $this->image = $rec["image"];
             $this->author = $rec["author"];
         } else {
-            $this->ISBN = -1;
+            $this->ISBN = "";
         }
     }
 
@@ -48,10 +48,9 @@ class Book
                     as rating
                     from Rating, Books
                     where Rating.ISBN = Books.ISBN
-                    and Rating.ISBN = ?
-                    group by Rating.ISBN;";
-        $mysql->Prepare($query);
-        $res = $mysql->ExecuteStatement($ISBN);
+                    and Rating.ISBN = ".$ISBN." group by Rating.ISBN";
+        //$mysql->Prepare($query);
+        $res = $mysql->Execute($query);
         if ($rec = $res->fetch()) {
             return $rec["rating"];
         }
@@ -61,7 +60,7 @@ class Book
         $mysql = pdodb::getInstance();
         $query = "SELECT * FROM Books WHERE title=?";
         $mysql->Prepare($query);
-        $res = $mysql->ExecuteStatement($title);
+        $res = $mysql->Execute($query);
         if ($rec = $res->fetch()) {
             return $rec;
         }
@@ -71,7 +70,7 @@ class Book
         $mysql = pdodb::getInstance();
         $query = "SELECT * FROM Books WHERE author=?";
         $mysql->Prepare($query);
-        $res = $mysql->ExecuteStatement($author);
+        $res = $mysql->Execute($query);
         if ($rec = $res->fetch()) {
             return $rec;
         }

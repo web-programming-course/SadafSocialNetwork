@@ -1,6 +1,12 @@
 <!DOCTYPE html>
 
 <?php
+
+// $servername = "localhost";
+// $username = "user1";
+// $password = "user1";
+// $dbname = "sadaf";
+
 $isbn = $title = $author = $publisher = $date= $pdf = $imge = $desc = "";
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
@@ -13,6 +19,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $img = test_input($_REQUEST["img"]);
         $pdf = test_input($_REQUEST["pdf"]);
 }
+
+// $mysql = pdodb::get->Instance()
+// $query = "INSERT INTO Books (ISBN, publisher , descriptions , numberofPage , link ,  title , dates  , Author)
+// VALUES ('123Y'  , 'pooya' , "a book about dogs" , 121 , 'bookreads.com/book2' '102 sag khaldar' , '2001-12-4' , 'img/file.pdf' , "Shiva" , 1);"
+// $res = $mysql->Execute($query)
+
+
 function test_input($data) {
   $data = trim($data);
   $data = stripslashes($data);
@@ -167,45 +180,44 @@ function test_input($data) {
       }
     </style>
   </head>
-  <body>
-      
+  <body>   
     <div class="testbox">
-      <form action="/">
+        <form method="post">
         <div class="banner">
           <h1>New Book Form</h1>
           <img src="./images/bg_img2.jpg" width="1600" height="320">
         </div>
-        <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">  
+          
         <div class="item">
-          <div class="name-item">
-            <div>
-              <label for="isbn">ISBN<span>*</span></label>
-                <input id="isbn" type="text" name="isbn" placeholder="Example : 9780393958041" required />
-                  </div>
-                  </div>
+            <div class="name-item">
+                <div>
+                    <label for="isbn">ISBN<span>*</span></label>
+                    <input id="isbn" type="text" name="isbn"  placeholder="Example : 9780393958041" required >
                 </div>
-        <div class="item">
-          <label for="title">Title<span>*</span></label>
-          <div class="name-item">
-            <input id="title" type="text" name="title" placeholder="Example : Alice in wonderland" required/>
-          </div>
-          <label for="publisher">Publisher<span>*</span></label>
-          <div class="name-item">
-              <input id="publisher" type="text" name="title" placeholder="Example : Norton Critical " required />
-          </div>
-        </div>
-        <div class="item">
-          <label for="date">Date<span>*</span></label>
-          <input id="date" type="date" name="date" required/>
-          <i class="fas fa-calendar-alt"></i>
-        </div>
-        <div class="item">
-          <div class="name-item">
-            <div>
-              <label for="author">Author <span>*</span> </label>
-              <input id="author" type="text" name="auhtor" placeholder="Example : Lewis Carroll" required/>
             </div>
-          </div>
+        </div>
+        <div class="item">
+            <label for="title">Title<span>*</span></label>
+            <div class="name-item">
+                <input id="title" type="text" name="title" placeholder="Example : Alice in wonderland" required>
+            </div>
+            <label for="publisher">Publisher<span>*</span></label>
+            <div class="name-item">
+                <input id="publisher" type="text" name="title" placeholder="Example : Norton Critical " required >
+            </div>
+        </div>
+        <div class="item">
+            <label for="date">Date<span>*</span></label>
+            <input id="date" type="date" name="date" required/>
+            <i class="fas fa-calendar-alt"></i>
+        </div>
+        <div class="item">
+            <div class="name-item">
+                <div>
+                    <label for="author">Author <span>*</span> </label>
+                    <input id="author" type="text" name="auhtor" placeholder="Example : Lewis Carroll" required>
+                </div>
+            </div>
         </div>
         <div class="item">
           <label for="apply">Description</label>
@@ -214,14 +226,14 @@ function test_input($data) {
         </div>
         <div class="item">
           <label for="cv">Upload PDF File<span>*</span></label>
-          <input  id="pdf" type="file" required/>
+          <input  id="pdf" type="file" >
         </div>
         <div class="item">
           <label for="cover">Upload Cover Image<span>*</span></label>
-          <input  id="img" type="file" required/>
+          <input  id="img" type="file" >
         </div>
         <div class="btn-block">
-          <button type="submit" href="/">Submit</button>
+          <button type="submit">Submit</button>
         </div>
       </form>
     </div>

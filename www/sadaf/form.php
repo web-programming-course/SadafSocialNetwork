@@ -231,11 +231,11 @@ function test_input($data) {
         </div>
         <div class="item">
           <label for="cv">Upload PDF File<span>*</span></label>
-          <input  id="pdf" type="file" >
+          <input  id="pdf" name = "pdf" type="file" >
         </div>
         <div class="item">
           <label for="cover">Upload Cover Image<span>*</span></label>
-          <input  id="img" type="file" >
+          <input  id="img" name = "img" type="file" >
         </div>
         <div class="btn-block">
           <button type="submit">Submit</button>

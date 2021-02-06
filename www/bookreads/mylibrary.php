@@ -148,44 +148,44 @@ HTMLBegin();
                                     </th>
                                 </tr>
                                 <?php
-                                    if (isset($_REQUEST['state'])){
-                                        $query = "select * from connects ,books where connects.ISBN=books.ISBN and state=".$_REQUEST['state']." and connects.AccountSpecID=1";
-                                    }else{
-                                        $query = "select * from connects ,books where connects.ISBN=books.ISBN and connects.AccountSpecID=1";
-                                    }
+                                if (isset($_REQUEST['state'])){
+                                    $query = "select * from connects ,books where connects.ISBN=books.ISBN and state=".$_REQUEST['state']." and connects.AccountSpecID=1";
+                                }else{
+                                    $query = "select * from connects ,books where connects.ISBN=books.ISBN and connects.AccountSpecID=1";
+                                }
 
-                                    $mysql = pdodb::getInstance();
-                                    $res = $mysql-> Execute($query);
-                                    while ($rec = $res->fetch())
-                                    {
+                                $mysql = pdodb::getInstance();
+                                $res = $mysql-> Execute($query);
+                                while ($rec = $res->fetch())
+                                {
 
-                                        echo "<tr>";
-                                        echo "<td>";
-                                        echo "<a title =";
-                                        echo "ISBN class=";
-                                        echo "actionLinkLite ";
-                                        echo "href=BookProfile.php?ISBN=".$rec['ISBN'].">";
-                                        echo $rec['ISBN'];
-                                        echo "</a></td>";
-                                        echo "<td>".$rec['title']."</td>";
-                                        echo "<td>".$rec['author']."</td>";
-                                        echo "<td>".$rec['numberofPage']."</td>";
-                                        echo "<td>".$rec['donePages']."</td>";
+                                    echo "<tr>";
+                                    echo "<td>";
+                                    echo "<a title =";
+                                    echo "ISBN class=";
+                                    echo "actionLinkLite ";
+                                    echo "href=BookProfile.php?ISBN=".$rec['ISBN'].">";
+                                    echo $rec['ISBN'];
+                                    echo "</a></td>";
+                                    echo "<td>".$rec['title']."</td>";
+                                    echo "<td>".$rec['author']."</td>";
+                                    echo "<td>".$rec['numberofPage']."</td>";
+                                    echo "<td>".$rec['donePages']."</td>";
 
-                                        $avg_rating = "SELECT avg(rating.rating) as avg FROM books,rating where books.ISBN=rating.ISBN and rating.ISBN = '".$rec['ISBN']."'";
-                                        $avg_res = $mysql->Execute($avg_rating);
-                                        $ans_avg = $avg_res->fetch();
-                                        echo "<td>".round($ans_avg['avg'],2)."</td>";
+                                    $avg_rating = "SELECT avg(rating.rating) as avg FROM books,rating where books.ISBN=rating.ISBN and rating.ISBN = '".$rec['ISBN']."'";
+                                    $avg_res = $mysql->Execute($avg_rating);
+                                    $ans_avg = $avg_res->fetch();
+                                    echo "<td>".round($ans_avg['avg'],2)."</td>";
 
-                                        $count_rating = "SELECT count(rating.rating) as count FROM books,rating where books.ISBN=rating.ISBN and rating.ISBN = '".$rec['ISBN']."'";
-                                        $count_res = $mysql->Execute($count_rating);
-                                        $cnt_avg = $count_res->fetch();
-                                        echo "<td>".$cnt_avg['count']."</td>";
-                                        echo "<td>".$rec['publisher']."</td>";
-                                        echo "<td>".$rec['dates']."</td>";
-                                        echo "</tr>";
+                                    $count_rating = "SELECT count(rating.rating) as count FROM books,rating where books.ISBN=rating.ISBN and rating.ISBN = '".$rec['ISBN']."'";
+                                    $count_res = $mysql->Execute($count_rating);
+                                    $cnt_avg = $count_res->fetch();
+                                    echo "<td>".$cnt_avg['count']."</td>";
+                                    echo "<td>".$rec['publisher']."</td>";
+                                    echo "<td>".$rec['dates']."</td>";
+                                    echo "</tr>";
 
-                                    }
+                                }
                                 ?>
                                 </thead>
                             </table>

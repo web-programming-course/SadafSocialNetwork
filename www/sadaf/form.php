@@ -20,13 +20,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if(isset($_FILES['pdf']) && $_FILES['pdf']['name'] != ""){
         $pdf_content = file_get_contents($_FILES["pdf"]["tmp_name"]);
         $pdf_name = $_FILES["pdf"]["name"];
-        move_uploaded_file($_FILES["pdf"]["tmp_name"], "UploadedFile/".$pdf_name);
+        move_uploaded_file($_FILES["pdf"]["tmp_name"], "UploadFile/".$pdf_name);
     }
 
     if(isset($_FILES['img']) && $_FILES['img']['name'] != ""){
         $img_content = file_get_contents($_FILES["img"]["tmp_name"]);
         $img_name = $_FILES["img"]["name"];
-        move_uploaded_file($_FILES["img"]["tmp_name"], "UploadedFile/".$img_name);
+        move_uploaded_file($_FILES["img"]["tmp_name"], "UploadFile/".$img_name);
     }
 }
 

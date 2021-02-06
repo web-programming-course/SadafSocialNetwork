@@ -35,13 +35,13 @@ HTMLBegin();
 
                             </button>
                         </div>
-                        <a href="mylibrary.php" class="siteHeader__logo" aria-label="Bookreads Home" title="Bookreads Home">
+                        <a href="../sadaf/firstpage.php" class="siteHeader__logo" aria-label="Bookreads Home" title="Bookreads Home">
                             <img  src="asset/icon/logo.png" class="siteHeader__logo">
                         </a>
                         <nav class="siteHeader__primaryNavInline">
                             <ul role="menu" class="siteHeader__menuList">
                                 <li class="siteHeader__topLevelItem siteHeader__topLevelItem--home">
-                                    <a href="index.html" class="siteHeader__topLevelLink" >
+                                    <a href="../sadaf/firstpage.php" class="siteHeader__topLevelLink" >
                                         Home
                                     </a>
                                 </li>
@@ -107,14 +107,6 @@ HTMLBegin();
                                     <div class="stacked">
                                     </div>
                                 </div>
-                                <div class="stacked">
-                                    <div id="newShelfForm" style="display: none;" class="clearFix">
-                                        <form class="titledBuilderForm gr-form gr-form--compact" id="shelf_name_form" action="https://www.goodreads.com/user_shelves" accept-charset="UTF-8" data-remote="true" method="post"><input name="utf8" type="hidden" value="✓"><span class="formField name"><span class="labelDiv"><label class="gr-form--compact__label" for="user_shelf_name">Add a Shelf</label></span><span class="fieldDiv"><input size="18" maxlength="35" label_title="Add a Shelf" class="gr-form--compact__input" type="text" value="" name="user_shelf[name]" id="user_shelf_name"></span></span>
-                                            <input type="submit" name="commit" value="add" class="gr-form--compact__submitButton">
-                                        </form>
-
-                                    </div>
-                                </div>
                                 <div class="horizontalGreyDivider"></div>
                             </div>
                         </div>
@@ -168,7 +160,13 @@ HTMLBegin();
                                     {
 
                                         echo "<tr>";
-                                        echo "<td>".$rec['ISBN']."</td>";
+                                        echo "<td>";
+                                        echo "<a title =";
+                                        echo "ISBN class=";
+                                        echo "actionLinkLite ";
+                                        echo "href=BookProfile.php?ISBN=".$rec['ISBN'].">";
+                                        echo $rec['ISBN'];
+                                        echo "</a></td>";
                                         echo "<td>".$rec['title']."</td>";
                                         echo "<td>".$rec['author']."</td>";
                                         echo "<td>".$rec['numberofPage']."</td>";
@@ -185,6 +183,7 @@ HTMLBegin();
                                         echo "<td>".$cnt_avg['count']."</td>";
                                         echo "<td>".$rec['publisher']."</td>";
                                         echo "<td>".$rec['dates']."</td>";
+                                        echo "</tr>";
 
                                     }
                                 ?>

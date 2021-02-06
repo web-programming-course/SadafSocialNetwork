@@ -8,7 +8,6 @@
 // $dbname = "sadaf";
 
 $isbn = $title = $author = $publisher = $date= $pdf = $imge = $desc = "";
-
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $title = test_input($_REQUEST["title"]);
         $isbn = test_input($_REQUEST["isbn"]);
@@ -16,9 +15,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $author = test_input($_REQUEST["author"]);
         $date = test_input($_REQUEST["date"]);
         $desc = test_input($_REQUEST["desc"]);
-        $img = test_input($_REQUEST["img"]);
-        $pdf = test_input($_REQUEST["pdf"]);
-}
+
+    if(isset($_Files["pdf"])){
+        var_dump($_FILES["pdf"]); 
+        echo "File Upload";
+    }
+    else
+        echo "not File Upload";
+    }
+
 
 // $mysql = pdodb::get->Instance()
 // $query = "INSERT INTO Books (ISBN, publisher , descriptions , numberofPage , link ,  title , dates  , Author)
@@ -182,7 +187,7 @@ function test_input($data) {
   </head>
   <body>   
     <div class="testbox">
-        <form method="post">
+        <form method="post" enctype = "multipart/form-data">
         <div class="banner">
           <h1>New Book Form</h1>
           <img src="./images/bg_img2.jpg" width="1600" height="320">
@@ -203,7 +208,7 @@ function test_input($data) {
             </div>
             <label for="publisher">Publisher<span>*</span></label>
             <div class="name-item">
-                <input id="publisher" type="text" name="title" placeholder="Example : Norton Critical " required >
+                <input id="publisher" type="text" name="publisher" placeholder="Example : Norton Critical " required >
             </div>
         </div>
         <div class="item">
@@ -243,5 +248,13 @@ function test_input($data) {
 
 <?php
 echo "<h2>Your Input:</h2>";
+echo "<h3>title</h3>";
 echo $title;
+echo "<br>";
+echo $isbn;
+echo "<br>";
+echo $date;
+echo "<br>";
+echo $desc;
+echo "<br>";
 ?>

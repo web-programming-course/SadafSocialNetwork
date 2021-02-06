@@ -7,22 +7,28 @@
 // $password = "user1";
 // $dbname = "sadaf";
 
-$isbn = $title = $author = $publisher = $date= $pdf = $imge = $desc = "";
+$isbn = $title = $author = $page = $publisher = $date= $pdf = $imge = $desc = "";
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $title = test_input($_REQUEST["title"]);
         $isbn = test_input($_REQUEST["isbn"]);
         $publisher = test_input($_REQUEST["publisher"]);
+        $page = test_input($_REQUEST["pages"]);
         $author = test_input($_REQUEST["author"]);
         $date = test_input($_REQUEST["date"]);
         $desc = test_input($_REQUEST["desc"]);
 
-    if(isset($_Files["pdf"])){
-        var_dump($_FILES["pdf"]); 
-        echo "File Upload";
+    if(isset($_FILES['pdf']) && $_FILES['pdf']['name'] != ""){
+        $pdf_content = file_get_contents($_FILES["pdf"]["tmp_name"]);
+        $pdf_name = $_FILES["pdf"]["name"];
+        move_uploaded_file($_FILES["pdf"]["tmp_name"], "UploadedFile/".$pdf_name);
     }
-    else
-        echo "not File Upload";
+
+    if(isset($_FILES['img']) && $_FILES['img']['name'] != ""){
+        $img_content = file_get_contents($_FILES["img"]["tmp_name"]);
+        $img_name = $_FILES["img"]["name"];
+        move_uploaded_file($_FILES["img"]["tmp_name"], "UploadedFile/".$img_name);
     }
+}
 
 
 // $mysql = pdodb::get->Instance()
@@ -225,8 +231,15 @@ function test_input($data) {
             </div>
         </div>
         <div class="item">
+            <div class="name-item">
+                <div>
+                    <label for="Number of Pages"> Number of Pages <span>*</span> </label>
+                    <input id="pages" type="text" name="pages" placeholder="Example : 1111" required>
+                </div>
+            </div>
+        </div>
+        <div class="item">
           <label for="apply">Description</label>
-        <!-- <input id="description" type="text" name="text"> -->
         <textarea id="desc" rows="3"></textarea>
         </div>
         <div class="item">
@@ -238,23 +251,10 @@ function test_input($data) {
           <input  id="img" name = "img" type="file" >
         </div>
         <div class="btn-block">
-          <button type="submit">Submit</button>
+          <button type="submit" >Submit</button>
         </div>
       </form>
     </div>
   </body>
 </html>
 
-
-<?php
-echo "<h2>Your Input:</h2>";
-echo "<h3>title</h3>";
-echo $title;
-echo "<br>";
-echo $isbn;
-echo "<br>";
-echo $date;
-echo "<br>";
-echo $desc;
-echo "<br>";
-?>

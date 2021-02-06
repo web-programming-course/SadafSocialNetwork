@@ -42,20 +42,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $query = "SELECT * FROM  Books  WHERE ISBN="."'$isbn'" ;
 
     $mysql = pdodb::getInstance();
-    echo $query;
     $res = $mysql->Execute($query);
-    echo $query;
-    echo $res->num_rows;
-    echo "wer";
     if (mysqli_num_rows($res)==0){
-        echo "not repeat\n";
         $query = "INSERT INTO Books (title , ISBN , publisher , numberofPage  ,  Author , dates  ,  descriptions , image , files , AccountSpecID)
                     VALUES ( '$title'  , '$isbn' , '$publisher' , $page , '$author' , '$date' , '$desc' , '$img_path' , '$file_path' , $user)";
-        echo $query;
         $res = $mysql->Execute($query);
-    }
-    else{
-        echo "repeated";
     }
 }
 
@@ -139,7 +130,7 @@ function test_input($data) {
             <div class="name-item">
                 <div>
                     <label for="User-ID"> User-ID <span>*</span> </label>
-                    <input id="user" type="text" name="user" placeholder="User-ID : 1" required>
+                    <input id="user" type="number" name="user" placeholder="User-ID : 1" required>
                 </div>
             </div>
         </div>
@@ -147,7 +138,7 @@ function test_input($data) {
             <div class="name-item">
                 <div>
                     <label for="Number of Pages"> Number of Pages <span>*</span> </label>
-                    <input id="pages" type="text" name="pages" placeholder="Example : 1111" required>
+                    <input id="pages" type="number" name="pages" placeholder="Example : 1111" required>
                 </div>
             </div>
         </div>

@@ -3,17 +3,22 @@
 <?php
 $isbn = $title = $author = $publisher = $date= $pdf = $imge = $desc = "";
 
-if ($_SERVER["REQUEST_METHOD"] == "GET") {
-    $title = $_REQUEST["title"];
-    $isbn = $_REQUEST["isbn"];
-    $publisher = $_REQUEST["publisher"];
-    $author = $_REQUEST["author"];
-    $date = $_REQUEST["date"];
-    $desc = $_REQUEST["desc"];
-    $img = $_REQUEST["img"];
-    $pdf = $_REQUEST["pdf"];
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+        $title = test_input($_REQUEST["title"]);
+        $isbn = test_input($_REQUEST["isbn"]);
+        $publisher = test_input($_REQUEST["publisher"]);
+        $author = test_input($_REQUEST["author"]);
+        $date = test_input($_REQUEST["date"]);
+        $desc = test_input($_REQUEST["desc"]);
+        $img = test_input($_REQUEST["img"]);
+        $pdf = test_input($_REQUEST["pdf"]);
 }
-
+function test_input($data) {
+  $data = trim($data);
+  $data = stripslashes($data);
+  $data = htmlspecialchars($data);
+  return $data;
+}
 
 ?>
 
@@ -163,12 +168,14 @@ if ($_SERVER["REQUEST_METHOD"] == "GET") {
     </style>
   </head>
   <body>
+      
     <div class="testbox">
       <form action="/">
         <div class="banner">
           <h1>New Book Form</h1>
-          <img src="./images/bg_img2.jpg" width="1600" height="320"">
+          <img src="./images/bg_img2.jpg" width="1600" height="320">
         </div>
+        <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">  
         <div class="item">
           <div class="name-item">
             <div>
@@ -214,7 +221,7 @@ if ($_SERVER["REQUEST_METHOD"] == "GET") {
           <input  id="img" type="file" required/>
         </div>
         <div class="btn-block">
-          <button id = "button1" type="submit">Submit</button>
+          <button type="submit" href="/">Submit</button>
         </div>
       </form>
     </div>

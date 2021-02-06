@@ -119,7 +119,7 @@ VALUES
 "The Catcher in the Rye",
 NULL,
 "/BookReads/asset/books/img/5_cover.jpeg",
-"George Tillman Jr.",
+"J. D. Salinger",
 1);
 
 

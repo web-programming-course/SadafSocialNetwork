@@ -879,7 +879,65 @@ VALUES
 2,
 999);
 
+INSERT INTO `sadaf`.`Comments`
+(`ISBN`,
+`WAccountSpecID`,
+`content`)
+VALUES
+(444,
+2,
+"I had originally said I was not going to read this book, I did not know how well I would like it, and I do not tend to get involved with things that can make life at work harder for me.");
 
+
+INSERT INTO `sadaf`.`Comments`
+(`ISBN`,
+`WAccountSpecID`,
+`content`)
+VALUES
+(111,
+4,
+"Can I read it Because I am really bored And I want to read a book so can i?");
+
+
+
+INSERT INTO `sadaf`.`Comments`
+(`ISBN`,
+`WAccountSpecID`,
+`content`)
+VALUES
+(111,
+6,
+"how to read this im new here?");
+
+
+INSERT INTO `sadaf`.`Comments`
+(`ISBN`,
+`WAccountSpecID`,
+`content`)
+VALUES
+(111,
+6,
+"how to read this im new here?");
+
+
+INSERT INTO `sadaf`.`Comments`
+(`ISBN`,
+`WAccountSpecID`,
+`content`)
+VALUES
+(444,
+2,
+"Mn liaqate ezhare nazar dar morede in asar ro nadaram!");
+
+
+INSERT INTO `sadaf`.`Comments`
+(`ISBN`,
+`WAccountSpecID`,
+`content`)
+VALUES
+(333,
+7,
+"Raoul is very nonsensical");
 -- ======== Reply =========
 
 INSERT INTO `sadaf`.`Reply`

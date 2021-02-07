@@ -57,7 +57,7 @@
             if($i == 0){
                 $html_text = "<div class='row book-row'><div class='col-4 book-container'><img class='rounded book' src='.".$rec['image']."'><br><a href='".$rec['like']."' class='link-primary text-center book-text'>'".$rec['title']."'</a></div>";
             }
-            else if($i == 1){
+            else if($i == 1){ 
                 $html_text = "<div class='col-4 book-container'><img class='rounded book' src='.".$rec['image']."'><br><a href='".$rec['like']."' class='link-primary text-center book-text'>'".$rec['title']."'</a></div>";
             }
             else if($i == 2)

@@ -1,7 +1,6 @@
 
 <?php
 include "header.inc.php";
-//HTMLBegin();
 ?>
 
 <!DOCTYPE html>
@@ -23,6 +22,26 @@ include "header.inc.php";
 
 <body>
 
+<script>
+
+    function changeurl (elemnt) {
+
+        var url = new URL(window.location.href);
+        var tag = url.searchParams.get("tag");
+
+        if (tag){
+            if(elemnt.href.endsWith("?")){
+                window.location = elemnt.href+"tag="+tag;
+                elemnt.href = elemnt.href+"tag="+tag;
+            }
+            else{
+                window.location = elemnt.href+"&tag="+tag;
+                elemnt.href = elemnt.href+"&tag="+tag;
+            }
+        }
+        elemnt.preventDefault();
+    }
+</script>
 <div class="content">
 
     <div class="siteHeader">
@@ -89,20 +108,17 @@ include "header.inc.php";
                                     </div>
                                     <div id="paginatedShelfList" class="stacked">
                                         <div class="user_shelf">
-                                            <a title="All" class="actionLinkLite" href="mylibrary.php">All </a>
+                                            <a title="All" class="actionLinkLite" href="mylibrary.php?" onclick="changeurl(this)">All </a>
                                         </div>
                                         <div class="userShelf">
-                                            <a  title="Read" class="actionLinkLite" href="mylibrary.php?state=0">Read</a>
+                                            <a  title="Read" class="actionLinkLite" href="mylibrary.php?state=0" onclick="changeurl(this)">Read</a>
                                         </div>
                                         <div class="userShelf">
-                                            <a  title="Currently Reading shelf" class="actionLinkLite" href="mylibrary.php?state=1">Currently Reading </a>
+                                            <a  title="Currently Reading shelf" class="actionLinkLite" href="mylibrary.php?state=1" onclick="changeurl(this)">Currently Reading </a>
                                         </div>
                                         <div class="userShelf">
-                                            <a title="Want to Read shelf" class="actionLinkLite" href="mylibrary.php?state=2">Want to Read</a>
+                                            <a title="Want to Read shelf" class="actionLinkLite" href="mylibrary.php?state=2" onclick="changeurl(this)">Want to Read</a>
                                         </div>
-
-
-
                                     </div>
                                     <div class="stacked">
                                     </div>
@@ -148,44 +164,47 @@ include "header.inc.php";
                                     </th>
                                 </tr>
                                 <?php
-                                if (isset($_REQUEST['state'])){
-                                    $query = "select * from connects ,books where connects.ISBN=books.ISBN and state=".$_REQUEST['state']." and connects.AccountSpecID=1";
-                                }else{
-                                    $query = "select * from connects ,books where connects.ISBN=books.ISBN and connects.AccountSpecID=1";
+                                if($_REQUEST['tag']){
+                                    $id = $_REQUEST['tag'];
+                                    if (isset($_REQUEST['state'])){
+                                        $query = "select * from connects ,books where connects.ISBN=books.ISBN and state=".$_REQUEST['state']." and connects.AccountSpecID=".$id;
+                                    }else{
+                                        $query = "select * from connects ,books where connects.ISBN=books.ISBN and connects.AccountSpecID=".$id;
+                                    }
+
+                                    $mysql = pdodb::getInstance();
+                                    $res = $mysql-> Execute($query);
+                                    while ($rec = $res->fetch())
+                                    {
+                                        echo "<tr>";
+                                        echo "<td>";
+                                        echo "<a title =";
+                                        echo "ISBN class=";
+                                        echo "actionLinkLite ";
+                                        echo "href=BookProfile.php?ISBN=".$rec['ISBN'].">";
+                                        echo $rec['ISBN'];
+                                        echo "</a></td>";
+                                        echo "<td>".$rec['title']."</td>";
+                                        echo "<td>".$rec['author']."</td>";
+                                        echo "<td>".$rec['numberofPage']."</td>";
+                                        echo "<td>".$rec['donePages']."</td>";
+
+                                        $avg_rating = "SELECT avg(rating.rating) as avg FROM books,rating where books.ISBN=rating.ISBN and rating.ISBN = '".$rec['ISBN']."'";
+                                        $avg_res = $mysql->Execute($avg_rating);
+                                        $ans_avg = $avg_res->fetch();
+                                        echo "<td>".round($ans_avg['avg'],2)."</td>";
+
+                                        $count_rating = "SELECT count(rating.rating) as count FROM books,rating where books.ISBN=rating.ISBN and rating.ISBN = '".$rec['ISBN']."'";
+                                        $count_res = $mysql->Execute($count_rating);
+                                        $cnt_avg = $count_res->fetch();
+                                        echo "<td>".$cnt_avg['count']."</td>";
+                                        echo "<td>".$rec['publisher']."</td>";
+                                        echo "<td>".$rec['dates']."</td>";
+                                        echo "</tr>";
+
+                                    }
                                 }
 
-                                $mysql = pdodb::getInstance();
-                                $res = $mysql-> Execute($query);
-                                while ($rec = $res->fetch())
-                                {
-
-                                    echo "<tr>";
-                                    echo "<td>";
-                                    echo "<a title =";
-                                    echo "ISBN class=";
-                                    echo "actionLinkLite ";
-                                    echo "href=BookProfile.php?ISBN=".$rec['ISBN'].">";
-                                    echo $rec['ISBN'];
-                                    echo "</a></td>";
-                                    echo "<td>".$rec['title']."</td>";
-                                    echo "<td>".$rec['author']."</td>";
-                                    echo "<td>".$rec['numberofPage']."</td>";
-                                    echo "<td>".$rec['donePages']."</td>";
-
-                                    $avg_rating = "SELECT avg(rating.rating) as avg FROM books,rating where books.ISBN=rating.ISBN and rating.ISBN = '".$rec['ISBN']."'";
-                                    $avg_res = $mysql->Execute($avg_rating);
-                                    $ans_avg = $avg_res->fetch();
-                                    echo "<td>".round($ans_avg['avg'],2)."</td>";
-
-                                    $count_rating = "SELECT count(rating.rating) as count FROM books,rating where books.ISBN=rating.ISBN and rating.ISBN = '".$rec['ISBN']."'";
-                                    $count_res = $mysql->Execute($count_rating);
-                                    $cnt_avg = $count_res->fetch();
-                                    echo "<td>".$cnt_avg['count']."</td>";
-                                    echo "<td>".$rec['publisher']."</td>";
-                                    echo "<td>".$rec['dates']."</td>";
-                                    echo "</tr>";
-
-                                }
                                 ?>
                                 </thead>
                             </table>

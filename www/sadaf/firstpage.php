@@ -55,13 +55,13 @@
             }
 
             if($i == 0){
-                $html_text = "<div class='row book-row'><div class='col-4 book-container'><img class='rounded book' src='".$rec['image']."'><br><a href='../bookreads/BookProfile.php?".$rec['ISBN']."' class='link-primary text-center book-text'>".$rec['title']."</a></div>";
+                $html_text = "<div class='row book-row'><div class='col-4 book-container'><img class='rounded book' src='".$rec['image']."'><br><a href='../bookreads/BookProfile.php?ISBN=".$rec['ISBN']."' class='link-primary text-center book-text'>".$rec['title']."</a></div>";
             }
             else if($i == 1){ 
-                $html_text = "<div class='col-4 book-container'><img class='rounded book' src='".$rec['image']."'><br><a href='../bookreads/BookProfile.php?".$rec['ISBN']."' class='link-primary text-center book-text'>".$rec['title']."</a></div>";
+                $html_text = "<div class='col-4 book-container'><img class='rounded book' src='".$rec['image']."'><br><a href='../bookreads/BookProfile.php?ISBN=".$rec['ISBN']."' class='link-primary text-center book-text'>".$rec['title']."</a></div>";
             }
             else if($i == 2)
-                $html_text = "<div class='col-4 book-container'><img class='rounded book' src='".$rec['image']."'><br><a href='../bookreads/BookProfile.php?".$rec['ISBN']."' class='link-primary text-center book-text'>".$rec['title']."</a></div></div>";
+                $html_text = "<div class='col-4 book-container'><img class='rounded book' src='".$rec['image']."'><br><a href='../bookreads/BookProfile.php?ISBN=".$rec['ISBN']."' class='link-primary text-center book-text'>".$rec['title']."</a></div></div>";
             $i++;
 
             echo $html_text;

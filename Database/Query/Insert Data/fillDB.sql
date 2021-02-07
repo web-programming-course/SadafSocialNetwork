@@ -595,3 +595,124 @@ VALUES
 (333,
 1,
 6);
+
+
+INSERT INTO `sadaf`.`Rating`
+(`AccountSpecID`,
+`rating`,
+`ISBN`)
+VALUES
+(7,
+4,
+666);
+
+
+INSERT INTO `sadaf`.`Rating`
+(`AccountSpecID`,
+`rating`,
+`ISBN`)
+VALUES
+(7,
+5,
+111);
+
+--Rating
+INSERT INTO `sadaf`.`Rating`
+(`AccountSpecID`,
+`rating`,
+`ISBN`)
+VALUES
+(7,
+1,
+222);
+
+
+INSERT INTO `sadaf`.`Rating`
+(`AccountSpecID`,
+`rating`,
+`ISBN`)
+VALUES
+(7,
+4,
+333);
+
+
+INSERT INTO `sadaf`.`Rating`
+(`AccountSpecID`,
+`rating`,
+`ISBN`)
+VALUES
+(7,
+4,
+444);
+
+
+INSERT INTO `sadaf`.`Rating`
+(`AccountSpecID`,
+`rating`,
+`ISBN`)
+VALUES
+(7,
+4,
+555);
+
+
+INSERT INTO `sadaf`.`Rating`
+(`AccountSpecID`,
+`rating`,
+`ISBN`)
+VALUES
+(7,
+3,
+777);
+
+
+INSERT INTO `sadaf`.`Rating`
+(`AccountSpecID`,
+`rating`,
+`ISBN`)
+VALUES
+(7,
+5,
+888);
+
+
+INSERT INTO `sadaf`.`Rating`
+(`AccountSpecID`,
+`rating`,
+`ISBN`)
+VALUES
+(7,
+5,
+999);
+
+
+
+INSERT INTO `sadaf`.`Rating`
+(`AccountSpecID`,
+`rating`,
+`ISBN`)
+VALUES
+(2,
+5,
+222);
+
+
+INSERT INTO `sadaf`.`Rating`
+(`AccountSpecID`,
+`rating`,
+`ISBN`)
+VALUES
+(2,
+3,
+999);
+
+
+INSERT INTO `sadaf`.`Rating`
+(`AccountSpecID`,
+`rating`,
+`ISBN`)
+VALUES
+(2,
+4,
+111);

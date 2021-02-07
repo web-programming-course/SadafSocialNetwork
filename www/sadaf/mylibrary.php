@@ -2,10 +2,10 @@
 <?php
 include "header.inc.php";
 $userid = $_SESSION["UserID"];
-$query = "select * from accountspecs where AccountSpecID='$userid'";
+$query = "select * from accountspecs where UserID='$userid'";
 $mysql = pdodb::getInstance();
 $new_res = $mysql->Execute($query);
-$newID = $new_res->fetch()['UserID'];
+$newID = $new_res->fetch()['AccountSpecID'];
 ?>
 
 <!DOCTYPE html>

@@ -61,7 +61,7 @@
                 $html_text = "<div class='col-4 book-container'><img class='rounded book' src='".$rec['image']."'><br><a href='./BookProfile.php?ISBN=".$rec['ISBN']."' class='link-primary text-center book-text'>".$rec['title']."</a></div>";
             }
             else if($i == 2)
-                $html_text = "<div class='col-4 book-container'><img class='rounded book' src='".$rec['image']."'><br><a href='.//BookProfile.php?ISBN=".$rec['ISBN']."' class='link-primary text-center book-text'>".$rec['title']."</a></div></div>";
+                $html_text = "<div class='col-4 book-container'><img class='rounded book' src='".$rec['image']."'><br><a href='./BookProfile.php?ISBN=".$rec['ISBN']."' class='link-primary text-center book-text'>".$rec['title']."</a></div></div>";
             $i++;
 
             echo $html_text;

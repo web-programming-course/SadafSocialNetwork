@@ -28,7 +28,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $pdf_content = file_get_contents($_FILES["pdf"]["tmp_name"]);
         $pdf_name = $_FILES["pdf"]["name"];
         move_uploaded_file($_FILES["pdf"]["tmp_name"], "UploadFile/pdf/".$pdf_name);
-        $file_path = "UploadFile/pdf/".$pdf_name;
+        $file_path = "./UploadFile/pdf/".$pdf_name;
         //echo "upload";
     }
 
@@ -36,7 +36,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $img_content = file_get_contents($_FILES["img"]["tmp_name"]);
         $img_name = $_FILES["img"]["name"];
         move_uploaded_file($_FILES["img"]["tmp_name"], "UploadFile/img/".$img_name);
-        $img_path = "UploadFile/img/".$img_name;
+        $img_path = "./UploadFile/img/".$img_name;
         //echo "upload2";
     }
     $query = "SELECT * FROM  Books  WHERE ISBN="."'$isbn'" ;

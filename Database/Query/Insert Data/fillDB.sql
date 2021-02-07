@@ -67,7 +67,7 @@ VALUES
 (7,
 "tara",
 "12345",
-7;
+7);
 
 
 -- ===========================================
@@ -244,18 +244,6 @@ VALUES
 102,
 1,
 888);
-
-INSERT INTO `sadaf`.`Connects`
-(`AccountSpecID`,
-`donePages`,
-`state`,
-`ISBN`)
-VALUES
-(7,
-20,
-1,
-222);
-
 
 INSERT INTO `sadaf`.`Connects`
 (`AccountSpecID`,
@@ -488,396 +476,6 @@ VALUES(
 
 -- -- ================= Likes ==========================
 
-INSERT INTO `sadaf`.`Likes`
-(`AccountSpecID`,
-`id`,
-`ISBN`)
-VALUES
-(3,
-1,
-111);
-
-
-INSERT INTO `sadaf`.`Likes`
-(`AccountSpecID`,
-`id`,
-`ISBN`)
-VALUES
-(3,
-2,
-111);
-
-
-INSERT INTO `sadaf`.`Likes`
-(`AccountSpecID`,
-`id`,
-`ISBN`)
-VALUES
-(3,
-3,
-444);
-
-INSERT INTO `sadaf`.`Likes`
-(`AccountSpecID`,
-`id`,
-`ISBN`)
-VALUES
-(3,
-1,
-333);
-
-INSERT INTO `sadaf`.`Likes`
-(`AccountSpecID`,
-`id`,
-`ISBN`)
-VALUES
-(2,
-1,
-999);
-
-INSERT INTO `sadaf`.`Likes`
-(`AccountSpecID`,
-`id`,
-`ISBN`)
-VALUES
-(2,
-3,
-333);
-
-
-INSERT INTO `sadaf`.`Likes`
-(`AccountSpecID`,
-`id`,
-`ISBN`)
-VALUES
-(2,
-1,
-666);
-
-INSERT INTO `sadaf`.`Likes`
-(`AccountSpecID`,
-`id`,
-`ISBN`)
-VALUES
-(2,
-1,
-222);
-
-INSERT INTO `sadaf`.`Likes`
-(`AccountSpecID`,
-`id`,
-`ISBN`)
-VALUES
-(2,
-4,
-333);
-
-INSERT INTO `sadaf`.`Likes`
-(`AccountSpecID`,
-`id`,
-`ISBN`)
-VALUES
-(2,
-5,
-333);
-
-INSERT INTO `sadaf`.`Likes`
-(`AccountSpecID`,
-`id`,
-`ISBN`)
-VALUES
-(2,
-5,
-444);
-
-
-INSERT INTO `sadaf`.`Likes`
-(`AccountSpecID`,
-`id`,
-`ISBN`)
-VALUES
-(2,
-1,
-555);
-
-
-INSERT INTO `sadaf`.`Likes`
-(`AccountSpecID`,
-`id`,
-`ISBN`)
-VALUES
-(2,
-2,
-666);
-
-INSERT INTO `sadaf`.`Likes`
-(`AccountSpecID`,
-`id`,
-`ISBN`)
-VALUES
-(2,
-1,
-777);
-
-INSERT INTO `sadaf`.`Likes`
-(`AccountSpecID`,
-`id`,
-`ISBN`)
-VALUES
-(2,
-1,
-888);
-
-INSERT INTO `sadaf`.`Likes`
-(`AccountSpecID`,
-`id`,
-`ISBN`)
-VALUES
-(2,
-2,
-999);
-
-
-INSERT INTO `sadaf`.`Likes`
-(`AccountSpecID`,
-`id`,
-`ISBN`)
-VALUES
-(4,
-1,
-999);
-
-INSERT INTO `sadaf`.`Likes`
-(`AccountSpecID`,
-`id`,
-`ISBN`)
-VALUES
-(4,
-3,
-333);
-
-
-INSERT INTO `sadaf`.`Likes`
-(`AccountSpecID`,
-`id`,
-`ISBN`)
-VALUES
-(4,
-1,
-666);
-
-INSERT INTO `sadaf`.`Likes`
-(`AccountSpecID`,
-`id`,
-`ISBN`)
-VALUES
-(4,
-3,
-333);
-
-INSERT INTO `sadaf`.`Likes`
-(`AccountSpecID`,
-`id`,
-`ISBN`)
-VALUES
-(4,
-1,
-222);
-
-INSERT INTO `sadaf`.`Likes`
-(`AccountSpecID`,
-`id`,
-`ISBN`)
-VALUES
-(4,
-4,
-333);
-
-INSERT INTO `sadaf`.`Likes`
-(`AccountSpecID`,
-`id`,
-`ISBN`)
-VALUES
-(4,
-5,
-333);
-
-INSERT INTO `sadaf`.`Likes`
-(`AccountSpecID`,
-`id`,
-`ISBN`)
-VALUES
-(2,
-5,
-444);
-
-
-INSERT INTO `sadaf`.`Likes`
-(`AccountSpecID`,
-`id`,
-`ISBN`)
-VALUES
-(4,
-1,
-555);
-
-
-INSERT INTO `sadaf`.`Likes`
-(`AccountSpecID`,
-`id`,
-`ISBN`)
-VALUES
-(4,
-2,
-666);
-
-INSERT INTO `sadaf`.`Likes`
-(`AccountSpecID`,
-`id`,
-`ISBN`)
-VALUES
-(4,
-1,
-777);
-
-INSERT INTO `sadaf`.`Likes`
-(`AccountSpecID`,
-`id`,
-`ISBN`)
-VALUES
-(4,
-1,
-888);
-
-INSERT INTO `sadaf`.`Likes`
-(`AccountSpecID`,
-`id`,
-`ISBN`)
-VALUES
-(4,
-2,
-999);
-
-
-INSERT INTO `sadaf`.`Likes`
-(`AccountSpecID`,
-`id`,
-`ISBN`)
-VALUES
-(3,
-1,
-999);
-
-INSERT INTO `sadaf`.`Likes`
-(`AccountSpecID`,
-`id`,
-`ISBN`)
-VALUES
-(3,
-3,
-333);
-
-
-INSERT INTO `sadaf`.`Likes`
-(`AccountSpecID`,
-`id`,
-`ISBN`)
-VALUES
-(3,
-1,
-666);
-
-INSERT INTO `sadaf`.`Likes`
-(`AccountSpecID`,
-`id`,
-`ISBN`)
-VALUES
-(3,
-3,
-333);
-
-INSERT INTO `sadaf`.`Likes`
-(`AccountSpecID`,
-`id`,
-`ISBN`)
-VALUES
-(3,
-1,
-222);
-
-INSERT INTO `sadaf`.`Likes`
-(`AccountSpecID`,
-`id`,
-`ISBN`)
-VALUES
-(3,
-4,
-333);
-
-INSERT INTO `sadaf`.`Likes`
-(`AccountSpecID`,
-`id`,
-`ISBN`)
-VALUES
-(3,
-5,
-333);
-
-INSERT INTO `sadaf`.`Likes`
-(`AccountSpecID`,
-`id`,
-`ISBN`)
-VALUES
-(3,
-5,
-444);
-
-
-INSERT INTO `sadaf`.`Likes`
-(`AccountSpecID`,
-`id`,
-`ISBN`)
-VALUES
-(3,
-1,
-555);
-
-
-INSERT INTO `sadaf`.`Likes`
-(`AccountSpecID`,
-`id`,
-`ISBN`)
-VALUES
-(3,
-2,
-666);
-
-INSERT INTO `sadaf`.`Likes`
-(`AccountSpecID`,
-`id`,
-`ISBN`)
-VALUES
-(3,
-1,
-777);
-
-INSERT INTO `sadaf`.`Likes`
-(`AccountSpecID`,
-`id`,
-`ISBN`)
-VALUES
-(3,
-1,
-888);
-
-INSERT INTO `sadaf`.`Likes`
-(`AccountSpecID`,
-`id`,
-`ISBN`)
-VALUES
-(3,
-2,
-999);
 
 INSERT INTO `sadaf`.`Comments`
 (`ISBN`,
@@ -945,6 +543,55 @@ INSERT INTO `sadaf`.`Reply`
 `FID`,
 `SID`)
 VALUES
-(<{ISBN: }>,
-<{FID: }>,
-<{SID: }>);
+(444,
+2,
+6);
+
+INSERT INTO `sadaf`.`Reply`
+(`ISBN`,
+`FID`,
+`SID`)
+VALUES
+(111,
+2,
+5);
+
+
+INSERT INTO `sadaf`.`Reply`
+(`ISBN`,
+`FID`,
+`SID`)
+VALUES
+(111,
+2,
+6);
+
+
+INSERT INTO `sadaf`.`Reply`
+(`ISBN`,
+`FID`,
+`SID`)
+VALUES
+(111,
+4,
+7);
+
+
+INSERT INTO `sadaf`.`Reply`
+(`ISBN`,
+`FID`,
+`SID`)
+VALUES
+(444,
+5,
+7);
+
+
+INSERT INTO `sadaf`.`Reply`
+(`ISBN`,
+`FID`,
+`SID`)
+VALUES
+(333,
+1,
+6);

@@ -405,18 +405,15 @@ $description = "In Othello, Shakespeare creates a powerful drama of a marriage t
                             <div class='wtrButtonContainer' id='1_book_12996'>
                                 <div class='wtrUp wtrLeft'>
                                     <form action="/shelf/add_to_shelf" accept-charset="UTF-8" method="post"><input name="utf8" type="hidden" value="&#x2713;" /><input type="hidden" name="authenticity_token" value="Wd7NiVVkUFJA5+oFlzwp5fjcBzWddED6HBPwJ84SFK7Se3FmC27WlRe3M2B7FooXBmTiCcRKckGVAUlwgDun1g==" />
-                                        <input type="hidden" name="book_id" id="book_id" value="12996" />
-                                        <input type="hidden" name="name" id="name" value="to-read" />
-                                        <input type="hidden" name="unique_id" id="unique_id" value="1_book_12996" />
-                                        <input type="hidden" name="wtr_new" id="wtr_new" value="true" />
-                                        <input type="hidden" name="from_choice" id="from_choice" value="false" />
-                                        <input type="hidden" name="from_home_module" id="from_home_module" value="false" />
-                                        <input type="hidden" name="ref" id="ref" value="bm_bsh_wtrwtr" class="wtrLeftUpRef" />
-                                        <input type="hidden" name="existing_review" id="existing_review" value="false" class="wtrExisting" />
-                                        <input type="hidden" name="page_referrer" id="page_referrer" value="https://www.goodreads.com/" />
-                                        <input type="hidden" name="page_url" id="page_url" value="/book/show/12996.Othello" />
-                                        <input type="hidden" name="qid" id="qid" value="GSbtI3R7Hp" />
-                                        <input type="hidden" name="rank" id="rank" value="1" />
+
+                                        <button class='wtrToRead'  type='submit'>
+                                            <span class='progressTrigger'>Read</span>
+                                            <span class='progressIndicator'>saving…</span>
+                                        </button>
+                                        <button class='wtrToRead'  type='submit'>
+                                            <span class='progressTrigger'>Currently Reading</span>
+                                            <span class='progressIndicator'>saving…</span>
+                                        </button>
                                         <button class='wtrToRead' type='submit'>
                                             <span class='progressTrigger'>Want to Read</span>
                                             <span class='progressIndicator'>saving…</span>
@@ -425,80 +422,7 @@ $description = "In Othello, Shakespeare creates a powerful drama of a marriage t
 
                                 </div>
 
-                                <div class='wtrRight wtrUp'>
-                                    <form class="hiddenShelfForm" action="/shelf/add_to_shelf" accept-charset="UTF-8" method="post"><input name="utf8" type="hidden" value="&#x2713;" /><input type="hidden" name="authenticity_token" value="jI62VND3YkDbkWMtsvryucVMAYsgMOShm2bbLHhlqrQHKwq7jv3kh4zBukhe0FFLO/Tkt3kO1hoSdGJ7NkwZzA==" />
-                                        <input type="hidden" name="unique_id" id="unique_id" value="1_book_12996" />
-                                        <input type="hidden" name="book_id" id="book_id" value="12996" />
-                                        <input type="hidden" name="a" id="a" />
-                                        <input type="hidden" name="name" id="name" />
-                                        <input type="hidden" name="from_choice" id="from_choice" value="false" />
-                                        <input type="hidden" name="ref" id="ref" value="bm_bsh_wtres" class="wtrRefRightShelfMenu" />
-                                        <input type="hidden" name="existing_review" id="existing_review" value="false" class="wtrExisting" />
-                                        <input type="hidden" name="from_home_module" id="from_home_module" value="false" />
-                                        <input type="hidden" name="page_referrer" id="page_referrer" value="https://www.goodreads.com/" />
-                                        <input type="hidden" name="page_url" id="page_url" value="/book/show/12996.Othello" />
-                                        <input type="hidden" name="qid" id="qid" value="GSbtI3R7Hp" />
-                                        <input type="hidden" name="rank" id="rank" value="1" />
-                                    </form>
 
-                                    <button class='wtrShelfButton'></button>
-                                    <div class='wtrShelfMenu'>
-                                        <div class='wtrShelfList'>
-                                            <ul class='wtrExclusiveShelves'>
-                                                <li data-shelf-name='read'>
-                                                    <button class='wtrExclusiveShelf' name='name' type='submit' value='read'>
-                                                        <span class='progressTrigger'>Read</span>
-                                                        <img alt="saving…" class="progressIndicator" src="https://s.gr-assets.com/assets/loading-trans-ced157046184c3bc7c180ffbfc6825a4.gif" />
-                                                    </button>
-
-                                                </li>
-                                                <li data-shelf-name='currently-reading'>
-                                                    <button class='wtrExclusiveShelf' name='name' type='submit' value='currently-reading'>
-                                                        <span class='progressTrigger'>Currently Reading</span>
-                                                        <img alt="saving…" class="progressIndicator" src="https://s.gr-assets.com/assets/loading-trans-ced157046184c3bc7c180ffbfc6825a4.gif" />
-                                                    </button>
-
-                                                </li>
-                                                <li data-shelf-name='to-read'>
-                                                    <button class='wtrExclusiveShelf' name='name' type='submit' value='to-read'>
-                                                        <span class='progressTrigger'>Want to Read</span>
-                                                        <img alt="saving…" class="progressIndicator" src="https://s.gr-assets.com/assets/loading-trans-ced157046184c3bc7c180ffbfc6825a4.gif" />
-                                                    </button>
-
-                                                </li>
-                                            </ul>
-                                            <ul class='wtrNonExclusiveShelves'>
-                                            </ul>
-                                            <div class='wtrShelfSearchAddShelf'>
-                                                <form autocomplete="off" action="https://www.goodreads.com/shelf/add_to_shelf" accept-charset="UTF-8" method="post"><input name="utf8" type="hidden" value="&#x2713;" /><input type="hidden" name="authenticity_token" value="uzQAE7hmLqKr2YIEDCpJj8G17jLdtCOaa6RKICEy3Mwwkbz85myoZfyJW2HgAOp9Pw0LDoSKESHitvN3bxtvtA==" />
-                                                    <input type="hidden" name="unique_id" id="unique_id" />
-                                                    <input type="hidden" name="book_id" id="book_id" />
-                                                    <input type="hidden" name="ref" id="ref" value="bm_bsh_wtrnes" class="wtrShelfSearchAddRef" />
-                                                    <input type="hidden" name="existing_review" id="existing_review" value="false" class="wtrExisting" />
-                                                    <button class='progressTrigger' name='name' type='submit' value=''>
-                                                        Add "<span class='wtrButtonLabelShelfName'></span>" Shelf
-                                                    </button>
-                                                    <img alt="saving…" class="progressIndicator" src="https://s.gr-assets.com/assets/loading-trans-ced157046184c3bc7c180ffbfc6825a4.gif" />
-                                                </form>
-
-                                            </div>
-                                        </div>
-                                        <div class='wtrOtherShelfOptions'>
-                                            <label class="wtrExclusiveShelf wtrAddShelf" for="add_shelf_1_book_12996">Add shelf</label>
-                                            <form class="wtrAddShelf gr-form gr-form--compact" autocomplete="off" action="https://www.goodreads.com/shelf/add_to_shelf" accept-charset="UTF-8" method="post"><input name="utf8" type="hidden" value="&#x2713;" /><input type="hidden" name="authenticity_token" value="UQLiO2h4omoMyAghBcmVaeNr2JyOfBoU2niwaqUySf7ap17UNnIkrVuY0UTp4zabHdM9oNdCKK9Tagk96xv6hg==" />
-                                                <input type="hidden" name="unique_id" id="unique_id" />
-                                                <input type="hidden" name="book_id" id="book_id" />
-                                                <input type="hidden" name="ref" id="ref" value="bm_bsh_wtrnes" class="wtrAddSearchRef" />
-                                                <input type="hidden" name="existing_review" id="existing_review" value="false" class="wtrExisting" />
-                                                <input type="hidden" name="from_choice" id="from_choice" value="false" />
-                                                <input type="text" name="name" id="add_shelf_1_book_12996" autocorrect="off" autocomplete="off" />
-                                                <img alt="saving…" class="progressIndicator" src="https://s.gr-assets.com/assets/loading-trans-ced157046184c3bc7c180ffbfc6825a4.gif" />
-                                                <button name="button" type="submit" class="gr-form--compact__submitButton progressTrigger">Add</button>
-                                            </form>
-
-                                        </div>
-                                    </div>
-                                </div>
 
                                 <div class='ratingStars wtrRating'>
                                     <div class='starsErrorTooltip hidden'>

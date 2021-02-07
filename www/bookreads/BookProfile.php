@@ -99,11 +99,11 @@
 <!--        });-->
 <!--    </script>-->
 
-    <link rel="stylesheet" media="all" href="https://s.gr-assets.com/assets/goodreads-5993755fae11a45f930199406e2c75e3.css" />
+    <link rel="stylesheet" media="all" href="./css/goodreads_all.css" />
 
 
 
-    <link rel="stylesheet" media="screen" href="https://s.gr-assets.com/assets/common_images-670d97636259cafc355c94fc43e871d7.css" />
+    <link rel="stylesheet" media="screen" href="./css/goodreads_screen.css" />
 
 <!--    <script src="https://s.gr-assets.com/assets/desktop/libraries-41a429a5834e6352d597e2cf0b06486f.js"></script>-->
 <!--    <script src="https://s.gr-assets.com/assets/application-e1f7a59d8a3ee82c2db20200ea66a37f.js"></script>-->

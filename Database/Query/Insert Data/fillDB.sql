@@ -251,18 +251,6 @@ INSERT INTO `sadaf`.`Connects`
 `state`,
 `ISBN`)
 VALUES
-(7,
-20,
-1,
-222);
-
-
-INSERT INTO `sadaf`.`Connects`
-(`AccountSpecID`,
-`donePages`,
-`state`,
-`ISBN`)
-VALUES
 (4,
 115,
 2,

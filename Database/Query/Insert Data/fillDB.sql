@@ -67,7 +67,80 @@ VALUES
 (7,
 "tara",
 "12345",
-7);
+7;
+
+
+
+INSERT INTO `sadaf`.`persons`
+(`PersonID`,
+`pfname`,
+`plname`,
+`CardNumber`)
+VALUES
+(2,
+"shiva",
+"radmanesh",
+0);
+
+
+INSERT INTO `sadaf`.`persons`
+(`PersonID`,
+`pfname`,
+`plname`,
+`CardNumber`)
+VALUES
+(3,
+"kasra",
+"korminejad",
+0);
+
+
+INSERT INTO `sadaf`.`persons`
+(`PersonID`,
+`pfname`,
+`plname`,
+`CardNumber`)
+VALUES
+(4,
+"sahar",
+"sheikholeslami",
+0);
+
+INSERT INTO `sadaf`.`persons`
+(`PersonID`,
+`pfname`,
+`plname`,
+`CardNumber`)
+VALUES
+(5,
+"ali",
+"nasri",
+0);
+
+INSERT INTO `sadaf`.`persons`
+(`PersonID`,
+`pfname`,
+`plname`,
+`CardNumber`)
+VALUES
+(6,
+"mohsen",
+"mahmoudzade",
+0);
+
+
+INSERT INTO `sadaf`.`persons`
+(`PersonID`,
+`pfname`,
+`plname`,
+`CardNumber`)
+VALUES
+(7,
+"tara",
+"jadidi",
+0);
+
+
 
 
 -- ===========================================
@@ -93,7 +166,7 @@ INSERT INTO `sadaf`.`Connects`
 `state`,
 `ISBN`)
 VALUES
-(2,
+(1,
 105,
 2,
 111);
@@ -105,7 +178,7 @@ INSERT INTO `sadaf`.`Connects`
 `state`,
 `ISBN`)
 VALUES
-(2,
+(1,
 10,
 1,
 222);
@@ -117,7 +190,7 @@ INSERT INTO `sadaf`.`Connects`
 `state`,
 `ISBN`)
 VALUES
-(2,
+(1,
 0,
 0,
 999);
@@ -294,7 +367,7 @@ INSERT INTO `sadaf`.`Comments`
 `content`)
 VALUES
 (111,
-2,
+1,
 "That was really awsome");
 
 INSERT INTO `sadaf`.`Comments`
@@ -303,7 +376,7 @@ INSERT INTO `sadaf`.`Comments`
 `content`)
 VALUES
 (444,
-2,
+1,
 "Agar man bekhabam, che kasi mah ra be man khahad dad");
 
 INSERT INTO `sadaf`.`Comments`
@@ -312,7 +385,7 @@ INSERT INTO `sadaf`.`Comments`
 `content`)
 VALUES
 (444,
-2,
+1,
 "man maho mikham");
 
 
@@ -323,7 +396,7 @@ INSERT INTO `sadaf`.`Comments`
 `content`)
 VALUES(
 333,
-2,
+1,
 "That idiot should have chosen Eric");
 
 
@@ -597,122 +670,4 @@ VALUES
 6);
 
 
-INSERT INTO `sadaf`.`Rating`
-(`AccountSpecID`,
-`rating`,
-`ISBN`)
-VALUES
-(7,
-4,
-666);
-
-
-INSERT INTO `sadaf`.`Rating`
-(`AccountSpecID`,
-`rating`,
-`ISBN`)
-VALUES
-(7,
-5,
-111);
-
---Rating
-INSERT INTO `sadaf`.`Rating`
-(`AccountSpecID`,
-`rating`,
-`ISBN`)
-VALUES
-(7,
-1,
-222);
-
-
-INSERT INTO `sadaf`.`Rating`
-(`AccountSpecID`,
-`rating`,
-`ISBN`)
-VALUES
-(7,
-4,
-333);
-
-
-INSERT INTO `sadaf`.`Rating`
-(`AccountSpecID`,
-`rating`,
-`ISBN`)
-VALUES
-(7,
-4,
-444);
-
-
-INSERT INTO `sadaf`.`Rating`
-(`AccountSpecID`,
-`rating`,
-`ISBN`)
-VALUES
-(7,
-4,
-555);
-
-
-INSERT INTO `sadaf`.`Rating`
-(`AccountSpecID`,
-`rating`,
-`ISBN`)
-VALUES
-(7,
-3,
-777);
-
-
-INSERT INTO `sadaf`.`Rating`
-(`AccountSpecID`,
-`rating`,
-`ISBN`)
-VALUES
-(7,
-5,
-888);
-
-
-INSERT INTO `sadaf`.`Rating`
-(`AccountSpecID`,
-`rating`,
-`ISBN`)
-VALUES
-(7,
-5,
-999);
-
-
-
-INSERT INTO `sadaf`.`Rating`
-(`AccountSpecID`,
-`rating`,
-`ISBN`)
-VALUES
-(2,
-5,
-222);
-
-
-INSERT INTO `sadaf`.`Rating`
-(`AccountSpecID`,
-`rating`,
-`ISBN`)
-VALUES
-(2,
-3,
-999);
-
-
-INSERT INTO `sadaf`.`Rating`
-(`AccountSpecID`,
-`rating`,
-`ISBN`)
-VALUES
-(2,
-4,
-111);
+-- =============== 

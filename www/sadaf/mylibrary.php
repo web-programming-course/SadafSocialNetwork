@@ -1,6 +1,11 @@
 
 <?php
 include "header.inc.php";
+$userid = $_SESSION["UserID"];
+$query = "select * from accountspecs where AccountSpecID='$userid'";
+$mysql = pdodb::getInstance();
+$new_res = $mysql->Execute($query);
+$newID = $new_res->fetch()['UserID'];
 ?>
 
 <!DOCTYPE html>
@@ -22,26 +27,7 @@ include "header.inc.php";
 
 <body>
 
-<script>
 
-    function changeurl (elemnt) {
-
-        var url = new URL(window.location.href);
-        var tag = url.searchParams.get("tag");
-
-        if (tag){
-            if(elemnt.href.endsWith("?")){
-                window.location = elemnt.href+"tag="+tag;
-                elemnt.href = elemnt.href+"tag="+tag;
-            }
-            else{
-                window.location = elemnt.href+"&tag="+tag;
-                elemnt.href = elemnt.href+"&tag="+tag;
-            }
-        }
-        elemnt.preventDefault();
-    }
-</script>
 <div class="content">
 
     <div class="siteHeader">
@@ -108,7 +94,7 @@ include "header.inc.php";
                                     </div>
                                     <div id="paginatedShelfList" class="stacked">
                                         <div class="user_shelf">
-                                            <a title="All" class="actionLinkLite" href="mylibrary.php?" onclick="changeurl(this)">All </a>
+                                            <a title="All" class="actionLinkLite" href="mylibrary.php" onclick="changeurl(this)">All </a>
                                         </div>
                                         <div class="userShelf">
                                             <a  title="Read" class="actionLinkLite" href="mylibrary.php?state=0" onclick="changeurl(this)">Read</a>
@@ -164,45 +150,43 @@ include "header.inc.php";
                                     </th>
                                 </tr>
                                 <?php
-                                if($_REQUEST['tag']){
-                                    $id = $_REQUEST['tag'];
-                                    if (isset($_REQUEST['state'])){
-                                        $query = "select * from connects ,books where connects.ISBN=books.ISBN and state=".$_REQUEST['state']." and connects.AccountSpecID=".$id;
-                                    }else{
-                                        $query = "select * from connects ,books where connects.ISBN=books.ISBN and connects.AccountSpecID=".$id;
-                                    }
+                                if (isset($_REQUEST['state'])){
+                                    $query = "select * from connects ,books where connects.ISBN=books.ISBN and state=".$_REQUEST['state']." and connects.AccountSpecID=".$newID;
+                                }else{
+                                    $query = "select * from connects ,books where connects.ISBN=books.ISBN and connects.AccountSpecID=".$newID;
+                                }
 
-                                    $mysql = pdodb::getInstance();
-                                    $res = $mysql-> Execute($query);
-                                    while ($rec = $res->fetch())
-                                    {
-                                        echo "<tr>";
-                                        echo "<td>";
-                                        echo "<a title =";
-                                        echo "ISBN class=";
-                                        echo "actionLinkLite ";
-                                        echo "href=BookProfile.php?ISBN=".$rec['ISBN'].">";
-                                        echo $rec['ISBN'];
-                                        echo "</a></td>";
-                                        echo "<td>".$rec['title']."</td>";
-                                        echo "<td>".$rec['author']."</td>";
-                                        echo "<td>".$rec['numberofPage']."</td>";
-                                        echo "<td>".$rec['donePages']."</td>";
+                                $mysql = pdodb::getInstance();
+                                $res = $mysql-> Execute($query);
+                                while ($rec = $res->fetch())
+                                {
+                                    echo "<tr>";
+                                    echo "<td>";
+                                    echo "<a title =";
+                                    echo "ISBN class=";
+                                    echo "actionLinkLite ";
+                                    echo "href=BookProfile.php?ISBN=".$rec['ISBN'].">";
+                                    echo $rec['ISBN'];
+                                    echo "</a></td>";
+                                    echo "<td>".$rec['title']."</td>";
+                                    echo "<td>".$rec['author']."</td>";
+                                    echo "<td>".$rec['numberofPage']."</td>";
+                                    echo "<td>".$rec['donePages']."</td>";
 
-                                        $avg_rating = "SELECT avg(rating.rating) as avg FROM books,rating where books.ISBN=rating.ISBN and rating.ISBN = '".$rec['ISBN']."'";
-                                        $avg_res = $mysql->Execute($avg_rating);
-                                        $ans_avg = $avg_res->fetch();
-                                        echo "<td>".round($ans_avg['avg'],2)."</td>";
+                                    $avg_rating = "SELECT avg(rating.rating) as avg FROM books,rating where books.ISBN=rating.ISBN and rating.ISBN = '".$rec['ISBN']."'";
+                                    $avg_res = $mysql->Execute($avg_rating);
+                                    $ans_avg = $avg_res->fetch();
+                                    echo "<td>".round($ans_avg['avg'],2)."</td>";
 
-                                        $count_rating = "SELECT count(rating.rating) as count FROM books,rating where books.ISBN=rating.ISBN and rating.ISBN = '".$rec['ISBN']."'";
-                                        $count_res = $mysql->Execute($count_rating);
-                                        $cnt_avg = $count_res->fetch();
-                                        echo "<td>".$cnt_avg['count']."</td>";
-                                        echo "<td>".$rec['publisher']."</td>";
-                                        echo "<td>".$rec['dates']."</td>";
-                                        echo "</tr>";
+                                    $count_rating = "SELECT count(rating.rating) as count FROM books,rating where books.ISBN=rating.ISBN and rating.ISBN = '".$rec['ISBN']."'";
+                                    $count_res = $mysql->Execute($count_rating);
+                                    $cnt_avg = $count_res->fetch();
+                                    echo "<td>".$cnt_avg['count']."</td>";
+                                    echo "<td>".$rec['publisher']."</td>";
+                                    echo "<td>".$rec['dates']."</td>";
+                                    echo "</tr>";
 
-                                    }
+
                                 }
 
                                 ?>

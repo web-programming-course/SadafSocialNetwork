@@ -123,7 +123,7 @@
             echo "<hr>";
             for($i = 0; $i < $count; $i++){
                 echo "<div class='row'><div class='col-4'><a href=../bookreads/BookProfile.php?ّISBN=".$rec['ISBN'].">".$title[$i]."</a></div>";
-                echo "<div class='col-4'><img src='.".$img_path[$i]."' style='width: 12vw;'></div></div><hr>";
+                echo "<div class='col-4'><img src='".$img_path[$i]."' style='width: 12vw;'></div></div><hr>";
             }
         ?>
         

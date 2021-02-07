@@ -94,7 +94,7 @@
                 </div>
                 <div class="form-group mx-sm-3 mb-2">
                     <label for="inputPassword2" class="sr-only">Find by book</label>
-                    <input type="text" class="form-control" id="author"  name="author" placeholder="Password">
+                    <input type="text" class="form-control" id="author"  name="author" placeholder="author">
                 </div>
                 <button type="submit" class="btn btn-success mb-2" name="findByAuthor" id="findByAuthor">Search</button>
             </form>
@@ -109,7 +109,7 @@
                 </div>
                 <div class="form-group mx-sm-3 mb-2">
                     <label for="inputPassword2" class="sr-only">Find by title</label>
-                    <input type="text" class="form-control" id="title" name="title" placeholder="Password">
+                    <input type="text" class="form-control" id="title" name="title" placeholder="title">
                 </div>
                 <button type="submit" class="btn btn-success mb-2" name="findByTitle" id="findByTitle">Search</button>
             </form>

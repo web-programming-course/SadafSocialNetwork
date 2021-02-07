@@ -933,6 +933,55 @@ INSERT INTO `sadaf`.`Reply`
 `FID`,
 `SID`)
 VALUES
-(<{ISBN: }>,
-<{FID: }>,
-<{SID: }>);
+(444,
+2,
+6);
+
+INSERT INTO `sadaf`.`Reply`
+(`ISBN`,
+`FID`,
+`SID`)
+VALUES
+(111,
+2,
+5);
+
+
+INSERT INTO `sadaf`.`Reply`
+(`ISBN`,
+`FID`,
+`SID`)
+VALUES
+(111,
+2,
+6);
+
+
+INSERT INTO `sadaf`.`Reply`
+(`ISBN`,
+`FID`,
+`SID`)
+VALUES
+(111,
+4,
+7);
+
+
+INSERT INTO `sadaf`.`Reply`
+(`ISBN`,
+`FID`,
+`SID`)
+VALUES
+(444,
+5,
+7);
+
+
+INSERT INTO `sadaf`.`Reply`
+(`ISBN`,
+`FID`,
+`SID`)
+VALUES
+(333,
+1,
+6);

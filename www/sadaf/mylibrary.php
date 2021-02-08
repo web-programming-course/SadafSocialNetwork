@@ -2,7 +2,7 @@
 <?php
 include "header.inc.php";
 $userid = $_SESSION["UserID"];
-$query = "select * from accountspecs where UserID='$userid'";
+$query = "select * from AccountSpecs where UserID='$userid'";
 $mysql = pdodb::getInstance();
 $new_res = $mysql->Execute($query);
 $newID = $new_res->fetch()['AccountSpecID'];
@@ -94,16 +94,16 @@ $newID = $new_res->fetch()['AccountSpecID'];
                                     </div>
                                     <div id="paginatedShelfList" class="stacked">
                                         <div class="user_shelf">
-                                            <a title="All" class="actionLinkLite" href="mylibrary.php" onclick="changeurl(this)">All </a>
+                                            <a title="All" class="actionLinkLite" href="mylibrary.php" ">All </a>
                                         </div>
                                         <div class="userShelf">
-                                            <a  title="Read" class="actionLinkLite" href="mylibrary.php?state=0" onclick="changeurl(this)">Read</a>
+                                            <a  title="Read" class="actionLinkLite" href="mylibrary.php?state=0"">Read</a>
                                         </div>
                                         <div class="userShelf">
-                                            <a  title="Currently Reading shelf" class="actionLinkLite" href="mylibrary.php?state=1" onclick="changeurl(this)">Currently Reading </a>
+                                            <a  title="Currently Reading shelf" class="actionLinkLite" href="mylibrary.php?state=1" ">Currently Reading </a>
                                         </div>
                                         <div class="userShelf">
-                                            <a title="Want to Read shelf" class="actionLinkLite" href="mylibrary.php?state=2" onclick="changeurl(this)">Want to Read</a>
+                                            <a title="Want to Read shelf" class="actionLinkLite" href="mylibrary.php?state=2" >Want to Read</a>
                                         </div>
                                     </div>
                                     <div class="stacked">
@@ -151,9 +151,9 @@ $newID = $new_res->fetch()['AccountSpecID'];
                                 </tr>
                                 <?php
                                 if (isset($_REQUEST['state'])){
-                                    $query = "select * from connects ,books where connects.ISBN=books.ISBN and state=".$_REQUEST['state']." and connects.AccountSpecID=".$newID;
+                                    $query = "select * from Connects ,Books where Connects.ISBN=Books.ISBN and state=".$_REQUEST['state']." and Connects.AccountSpecID=".$newID;
                                 }else{
-                                    $query = "select * from connects ,books where connects.ISBN=books.ISBN and connects.AccountSpecID=".$newID;
+                                    $query = "select * from Connects ,Books where Connects.ISBN=Books.ISBN and Connects.AccountSpecID=".$newID;
                                 }
 
                                 $mysql = pdodb::getInstance();
@@ -173,12 +173,12 @@ $newID = $new_res->fetch()['AccountSpecID'];
                                     echo "<td>".$rec['numberofPage']."</td>";
                                     echo "<td>".$rec['donePages']."</td>";
 
-                                    $avg_rating = "SELECT avg(rating.rating) as avg FROM books,rating where books.ISBN=rating.ISBN and rating.ISBN = '".$rec['ISBN']."'";
+                                    $avg_rating = "SELECT avg(Rating.rating) as avg FROM Books,Rating where Books.ISBN=Rating.ISBN and Rating.ISBN = '".$rec['ISBN']."'";
                                     $avg_res = $mysql->Execute($avg_rating);
                                     $ans_avg = $avg_res->fetch();
                                     echo "<td>".round($ans_avg['avg'],2)."</td>";
 
-                                    $count_rating = "SELECT count(rating.rating) as count FROM books,rating where books.ISBN=rating.ISBN and rating.ISBN = '".$rec['ISBN']."'";
+                                    $count_rating = "SELECT count(rating.rating) as count FROM Books,Rating where Books.ISBN=rating.ISBN and Rating.ISBN = '".$rec['ISBN']."'";
                                     $count_res = $mysql->Execute($count_rating);
                                     $cnt_avg = $count_res->fetch();
                                     echo "<td>".$cnt_avg['count']."</td>";

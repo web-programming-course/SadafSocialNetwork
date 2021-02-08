@@ -1,7 +1,7 @@
 
 <?php
 include "header.inc.php";
-$query = "select * from books where books.ISBN=".$_REQUEST['ISBN'];
+$query = "select * from Books where Books.ISBN=".$_REQUEST['ISBN'];
 $mysql = pdodb::getInstance();
 $res = $mysql-> Execute($query);
 $ISBN = $res->fetch()['ISBN'];
@@ -14,7 +14,7 @@ $ISBN = $res->fetch()['ISBN'];
 <head prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb# good_reads: http://ogp.me/ns/fb/good_reads#">
     <title>
         <?php
-            $query = "select * from books where books.ISBN=".$_REQUEST['ISBN'];
+            $query = "select * from books where Books.ISBN=".$_REQUEST['ISBN'];
             $mysql = pdodb::getInstance();
             $res = $mysql-> Execute($query);
             $title = $res->fetch()['title'];
@@ -392,7 +392,7 @@ $ISBN = $res->fetch()['ISBN'];
                                     <a rel="nofollow" itemprop="image">
                                         <img id="coverImage" alt="image" src="
                                         <?php
-                                        $query = "select * from books where books.ISBN=".$_REQUEST['ISBN'];
+                                        $query = "select * from Books where Books.ISBN=".$_REQUEST['ISBN'];
                                         $mysql = pdodb::getInstance();
                                         $res = $mysql-> Execute($query);
                                         $image = $res->fetch()['image'];
@@ -473,7 +473,7 @@ $ISBN = $res->fetch()['ISBN'];
                                         <a class="authorName" itemprop="url" href="https://www.goodreads.com/author/show/947.William_Shakespeare">
                                             <span itemprop="name">
                                                 <?php
-                                                $query = "select * from books where books.ISBN=".$_REQUEST['ISBN'];
+                                                $query = "select * from Books where Books.ISBN=".$_REQUEST['ISBN'];
                                                 $mysql = pdodb::getInstance();
                                                 $res = $mysql-> Execute($query);
                                                 $author = $res->fetch()['author'];
@@ -495,7 +495,7 @@ $ISBN = $res->fetch()['ISBN'];
 
                                 Rating: 
                                 <span itemprop="ratingValue"><?php
-                                    $avg_rating = "SELECT avg(rating.rating) as avg FROM books,rating where books.ISBN=rating.ISBN and rating.ISBN = ".$_REQUEST['ISBN'];
+                                    $avg_rating = "SELECT avg(Rating.rating) as avg FROM Books,Rating where Books.ISBN=Rating.ISBN and Rating.ISBN = ".$_REQUEST['ISBN'];
                                     $avg_res = $mysql->Execute($avg_rating);
                                     $ans_avg = $avg_res->fetch();
                                     echo round($ans_avg['avg'],2);
@@ -510,7 +510,7 @@ $ISBN = $res->fetch()['ISBN'];
 
                                     <span id="freeTextContainer16394401686507852407">
                                         <?php
-                                        $query = "select * from books where books.ISBN=".$_REQUEST['ISBN'];
+                                        $query = "select * from Books where Books.ISBN=".$_REQUEST['ISBN'];
                                         $mysql = pdodb::getInstance();
                                         $res = $mysql-> Execute($query);
                                         $desc = $res->fetch()['descriptions'];
@@ -545,7 +545,7 @@ $ISBN = $res->fetch()['ISBN'];
                                     <span itemprop="numberOfPages">
 
                                         <?php
-                                        $query = "select * from comments ,books where comments.ISBN=books.ISBN and books.ISBN=".$_REQUEST['ISBN'];
+                                        $query = "select * from Comments ,Books where Comments.ISBN=Books.ISBN and Books.ISBN=".$_REQUEST['ISBN'];
                                         $mysql = pdodb::getInstance();
                                         $res = $mysql-> Execute($query);
                                         echo $res->fetch()['numberofPage'];
@@ -557,7 +557,7 @@ $ISBN = $res->fetch()['ISBN'];
                                     Published
                                     by
                                     <?php
-                                    $query = "select * from comments ,books where comments.ISBN=books.ISBN and books.ISBN=".$_REQUEST['ISBN'];
+                                    $query = "select * from Comments ,Books where Comments.ISBN=Books.ISBN and Books.ISBN=".$_REQUEST['ISBN'];
                                     $mysql = pdodb::getInstance();
                                     $res = $mysql-> Execute($query);
                                     echo $res->fetch()['publisher'];
@@ -583,7 +583,7 @@ $ISBN = $res->fetch()['ISBN'];
                                             <div class="infoBoxRowTitle">ISBN</div>
                                             <div class="infoBoxRowItem">
                                                 <?php
-                                                $query = "select * from books where books.ISBN=".$_REQUEST['ISBN'];
+                                                $query = "select * from Books where Books.ISBN=".$_REQUEST['ISBN'];
                                                 $mysql = pdodb::getInstance();
                                                 $res = $mysql-> Execute($query);
 
@@ -603,7 +603,7 @@ $ISBN = $res->fetch()['ISBN'];
 
 
                                 <?php
-                                $query = "select * from comments  where comments.ISBN =".$_REQUEST['ISBN'];
+                                $query = "select * from Comments  where Comments.ISBN =".$_REQUEST['ISBN'];
                                 $mysql = pdodb::getInstance();
                                 $res = $mysql-> Execute($query);
 
@@ -613,7 +613,7 @@ $ISBN = $res->fetch()['ISBN'];
                                     echo "<td>";
 
                                     $userid = $rec['ID'];
-                                    $query = "select * from accountspecs where AccountSpecID=$userid";
+                                    $query = "select * from AccountSpecs where AccountSpecID=$userid";
                                     $mysql = pdodb::getInstance();
                                     $new_res = $mysql->Execute($query);
                                     $newID = $new_res->fetch()['UserID'];
@@ -645,7 +645,7 @@ $ISBN = $res->fetch()['ISBN'];
                                 {
 
                                     $userid = $_SESSION['UserID'];
-                                    $query = "select * from accountspecs where UserID='$userid'";
+                                    $query = "select * from AccountSpecs where UserID='$userid'";
                                     $mysql = pdodb::getInstance();
                                     $res = $mysql->Execute($query);
                                     $accID = $res->fetch()['AccountSpecID'];

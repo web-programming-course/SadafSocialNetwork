@@ -28,12 +28,15 @@
 سپس برای restare باید دستور زیر را وارد می کنیم.
     Sudo systemctl restart nginx    
 حال نیاز است برخی تغییرات در فایل  php.ini است، این فایل در مسیر زیر قرار دارد:
+
     /etc/php/<version>/fpm/php.in
-- باید مقدار short_open_path رو از off به آن on تغییر بدیم
-- در متغیر include_path باید include_path هایی که در htacess امده است را ذخیره کنیم.
-- برای اینکه بتوانیم فایل اپلود شده را دریافت کنیم، باید upload_max_filesize را نسبت به اندازه فایل ها تنظیم کنیم. همچنین file_uploads را باید on کنیم.
+    
+-  باید مقدار short_open_path رو از off به آن on تغییر بدیم
+-  در متغیر include_path باید include_path هایی که در htacess امده است را ذخیره کنیم.
+-  برای اینکه بتوانیم فایل اپلود شده را دریافت کنیم، باید upload_max_filesize را نسبت به اندازه فایل ها تنظیم کنیم. همچنین file_uploads را باید on کنیم.
 
 پس از ذخیره، نیاز به restart می باشد.
+
     Sudo systemctl restart php7.4 -fpm.service
 
 

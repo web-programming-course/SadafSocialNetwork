@@ -60,7 +60,12 @@ if (isset($_POST['delete_comment']))
             ?>
     </title>
 
-
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+        .checked {
+            color: orange;
+    }
+    </style>
     <!--    <link href='https://www.goodreads.com/book/show/12996.Othello' rel='canonical'>-->
     <!--    <link rel="alternate" href="https://www.goodreads.com/en/book/show/12996" hreflang="en"/>-->
     <!--    <link rel="alternate" href="https://www.goodreads.com/de/book/show/12996" hreflang="de"/>-->
@@ -440,21 +445,17 @@ if (isset($_POST['delete_comment']))
 
                             </div>
 
-                            <div class='wtrButtonContainer' id='1_book_12996'>
-                                <div class='wtrUp wtrLeft'>
-                                    <form action="/shelf/add_to_shelf" accept-charset="UTF-8" method="post"><input name="utf8" type="hidden" value="&#x2713;" /><input type="hidden" name="authenticity_token" value="Wd7NiVVkUFJA5+oFlzwp5fjcBzWddED6HBPwJ84SFK7Se3FmC27WlRe3M2B7FooXBmTiCcRKckGVAUlwgDun1g==" />
-
+                            <div class='wtrButtonContainer' style="margin-top: -480px">
+                                <div class='wtrUp wtrLeft' >
+                                    <form action="" method="post">
                                         <button class='wtrToRead'  type='submit'>
                                             <span class='progressTrigger'>Read</span>
-                                            <span class='progressIndicator'>saving…</span>
                                         </button>
                                         <button class='wtrToRead'  type='submit'>
                                             <span class='progressTrigger'>Currently Reading</span>
-                                            <span class='progressIndicator'>saving…</span>
                                         </button>
                                         <button class='wtrToRead' type='submit'>
                                             <span class='progressTrigger'>Want to Read</span>
-                                            <span class='progressIndicator'>saving…</span>
                                         </button>
                                     </form>
 
@@ -462,33 +463,63 @@ if (isset($_POST['delete_comment']))
 
 
 
-                                <div class='ratingStars wtrRating'>
+                                <script>
+                                    function starColor(element){
+
+                                        var stars = ["l1","l2","l3","l4","l5"];
+                                        console.log(element);
+                                        var  i =0
+                                        for (i =0  ; i < 5 ; i){
+
+                                            e = document.getElementById(stars[i]);
+                                            e.classList.remove("off");
+                                            e.classList.add("on");
+                                            if (stars[i]===element.id){
+
+                                                i++;
+                                                break;
+                                            }
+                                            i++;
+                                        }
+                                        for (i ; i<5 ; i++){
+                                            e = document.getElementById(stars[i]);
+                                            e.classList.remove("on");
+                                            e.classList.add("off");
+                                        }
+                                    }
+                                </script>
+                                <div class='ratingStars wtrRating' style="margin-left: -40px">
                                     <div class='starsErrorTooltip hidden'>
                                         Error rating book. Refresh and try again.
                                     </div>
                                     <div class='myRating uitext greyText'>Rate this book</div>
                                     <div class='clearRating uitext'>Clear rating</div>
                                     <div class="stars" data-resource-id="12996" data-user-id="129148878" data-submit-url="/review/rate/12996?page_referrer=https%3A%2F%2Fwww.goodreads.com%2F&page_url=%2Fbook%2Fshow%2F12996.Othello&qid=GSbtI3R7Hp&rank=1&stars_click=true&wtr_button_id=1_book_12996" data-rating="0">
-                                        <a class="star off" title="did not like it" href="#" ref="bm_rtg_st1_bsh">
+                                        <a class="star off" title="did not like it"  id="l1"
+                                           onmouseover="starColor(this)" onclick="rate">
                                             1 of 5 stars
                                         </a>
-                                        <a class="star off" title="it was ok" href="#" ref="bm_rtg_st2_bsh">
+                                        <a class="star off" title="it was ok" id="l2"
+                                           onmouseover="starColor(this)" onclick="rate">
                                             2 of 5 stars
                                         </a>
-                                        <a class="star off" title="liked it" href="#" ref="bm_rtg_st3_bsh">
+                                        <a class="star off" title="liked it" id="l3"
+                                           onmouseover="starColor(this)" onclick="rate">
                                             3 of 5 stars
                                         </a>
-                                        <a class="star off" title="really liked it" href="#" ref="bm_rtg_st4_bsh">
+                                        <a class="star off" title="really liked it" id="l4"
+                                           onmouseover="starColor(this)" onclick="rate">
                                             4 of 5 stars
                                         </a>
-                                        <a class="star off" title="it was amazing" href="#" ref="bm_rtg_st5_bsh">
+                                        <a class="star off" title="it was amazing" id="l5"
+                                           onmouseover="starColor(this)" onclick="rate">
                                             5 of 5 stars
                                         </a>
                                     </div>
                                 </div>
+                                
 
                             </div>
-
 
 
 
@@ -537,6 +568,15 @@ if (isset($_POST['delete_comment']))
                                     $avg_res = $mysql->Execute($avg_rating);
                                     $ans_avg = $avg_res->fetch();
                                     echo round($ans_avg['avg'],2);
+                                    ?>
+                                </span>
+                                <br>
+                                Number of reviews:
+                                <span itemprop="ratingValue"><?php
+                                    $cnt_rating = "SELECT count(Rating.rating) as cnt FROM Books,Rating where Books.ISBN=Rating.ISBN and Rating.ISBN = ".$_REQUEST['ISBN'];
+                                    $cnt_res = $mysql->Execute($cnt_rating);
+                                    $ans_cnt = $cnt_res->fetch();
+                                    echo $ans_cnt['cnt'];
                                     ?>
                                 </span>
 
@@ -683,7 +723,7 @@ if (isset($_POST['delete_comment']))
                                     Add comments:<br>
                                     <?php
                                     $userid = $_SESSION['UserID'];
-                                    $query = "select * from AccountSpecs,Comments where AccountSpecs.AccountSpecID=Comments.WAccountSpecID  
+                                    $query = "select * from AccountSpecs,Comments where AccountSpecs.AccountSpecID=Comments.ID  
                                       and AccountSpecs.UserID='$userid'  and Comments.ISBN=$ISBN ";
                                     $mysql = pdodb::getInstance();
                                     $res = $mysql->Execute($query);

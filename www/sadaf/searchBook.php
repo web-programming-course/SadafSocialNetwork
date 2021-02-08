@@ -17,7 +17,9 @@
             </div>
 
             <div class="col-6 logo">
+                <a href="./firstpage.php" style="color: white; text-decoration: none;">
                 Book<b id="logo-bold">Reads</b>
+                </a>
             </div>
 
 
@@ -27,6 +29,22 @@
 
             <div class="col-1"></div>
         </div>
+
+
+        <div class="row bg-dark" style="text-align: center;">
+            <div class="col-4">
+                <a href="./mylibrary.php"><b style="color: white;">Profile</b></a>
+            </div>
+
+            <div class="col-4">
+                <a href="./form.php"><b style="color: white;">Add Book</b></a>
+            </div>
+
+            <div class="col-4">
+                <a href="./searchBook.php"><b style="color: white;"> Search</b></a>
+            </div>
+        </div>
+
 
 
         <div id="page-cover" class="row">

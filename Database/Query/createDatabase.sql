@@ -8,7 +8,6 @@ CREATE TABLE Books(
     dates Date,
     image varchar(225),
     author text,
-    link varchar(255),
     AccountSpecID int(11),
     FOREIGN KEY (AccountSpecID) REFERENCES AccountSpecs(AccountSpecID),
 	PRIMARY KEY(ISBN)
@@ -18,6 +17,7 @@ CREATE TABLE Comments(
 	ISBN varchar(255),
     ID int NOT NULL AUTO_INCREMENT,
     WAccountSpecID int(11),
+    likeCount int DEFAULT 0,
     content text,
     FOREIGN KEY (WAccountSpecID) REFERENCES AccountSpecs(AccountSpecID),
     FOREIGN KEY (ISBN) REFERENCES Books(ISBN),
@@ -35,15 +35,7 @@ CREATE TABLE Connects(
 	PRIMARY KEY(ISBN , AccountSpecID)
 )ENGINE = MYISAM;
 
-CREATE TABLE Likes(
-	AccountSpecID varchar(255),
-    id int,
-    ISBN varchar(255),
-    FOREIGN KEY (AccountSpecID) REFERENCES AccountSpecs(AccountSpecID),
-    FOREIGN KEY (ISBN) REFERENCES Books(ISBN),
-    FOREIGN KEY (id) REFERENCES Comments(id),
-	PRIMARY KEY(ISBN , ID)
-)ENGINE = MYISAM;
+
 
 CREATE TABLE Reply(
 	ISBN varchar(255),
@@ -57,7 +49,6 @@ CREATE TABLE Reply(
 
 
 
-
 CREATE TABLE Rating(
 	AccountSpecID int(11),
     rating int(11),
@@ -66,7 +57,6 @@ CREATE TABLE Rating(
     FOREIGN KEY (ISBN) REFERENCES Books(ISBN),
 	PRIMARY KEY(ISBN , AccountSpecID)
 )ENGINE = MYISAM;
-
 
 
 

@@ -150,7 +150,7 @@ if (isset($_POST['rate']))
 
         $query = "INSERT INTO sadaf.Rating (AccountSpecID,rating,ISBN)
         VALUE ('$id',$rating,$ISBN)";
-            $res = $mysql->Execute($query);
+        $res = $mysql->Execute($query);
 
     }
 
@@ -162,97 +162,20 @@ if (isset($_POST['rate']))
 <head prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb# good_reads: http://ogp.me/ns/fb/good_reads#">
     <title>
         <?php
-            $query = "select * from Books where Books.ISBN=".$_REQUEST['ISBN'];
-            $mysql = pdodb::getInstance();
-            $res = $mysql-> Execute($query);
-            $title = $res->fetch()['title'];
-            echo $title;
-            ?>
+        $query = "select * from Books where Books.ISBN=".$_REQUEST['ISBN'];
+        $mysql = pdodb::getInstance();
+        $res = $mysql-> Execute($query);
+        $title = $res->fetch()['title'];
+        echo $title;
+        ?>
     </title>
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <style>
         .checked {
             color: orange;
-    }
+        }
     </style>
-    <!--    <link href='https://www.goodreads.com/book/show/12996.Othello' rel='canonical'>-->
-    <!--    <link rel="alternate" href="https://www.goodreads.com/en/book/show/12996" hreflang="en"/>-->
-    <!--    <link rel="alternate" href="https://www.goodreads.com/de/book/show/12996" hreflang="de"/>-->
-    <!--    <link rel="alternate" href="https://www.goodreads.com/tr/book/show/12996" hreflang="tr"/>-->
-    <!--    <link rel="alternate" href="https://www.goodreads.com/it/book/show/12996" hreflang="it"/>-->
-    <!--    <link rel="alternate" href="https://www.goodreads.com/pt/book/show/12996" hreflang="pt"/>-->
-    <!--    <link rel="alternate" href="https://www.goodreads.com/el/book/show/12996" hreflang="el"/>-->
-    <!--    <link rel="alternate" href="https://www.goodreads.com/ar/book/show/12996" hreflang="ar"/>-->
-    <!--    <link rel="alternate" href="https://www.goodreads.com/es/book/show/12996" hreflang="es"/>-->
-    <!--    <link rel="alternate" href="https://www.goodreads.com/fa/book/show/12996" hreflang="fa"/>-->
-    <!--    <link rel="alternate" href="https://www.goodreads.com/pl/book/show/12996" hreflang="pl"/>-->
-    <!--    <link rel="alternate" href="https://www.goodreads.com/sk/book/show/12996" hreflang="sk"/>-->
-    <!--    <link rel="alternate" href="https://www.goodreads.com/ro/book/show/12996" hreflang="ro"/>-->
-    <!--    <link rel="alternate" href="https://www.goodreads.com/nl/book/show/12996" hreflang="nl"/>-->
-    <!--    <link rel="alternate" href="https://www.goodreads.com/id/book/show/12996" hreflang="id"/>-->
-    <!--    <link rel="alternate" href="https://www.goodreads.com/zh/book/show/12996" hreflang="zh"/>-->
-    <!--    <link rel="alternate" href="https://www.goodreads.com/fr/book/show/12996" hreflang="fr"/>-->
-    <!--    <link rel="alternate" href="https://www.goodreads.com/no/book/show/12996" hreflang="no"/>-->
-    <!--    <link rel="alternate" href="https://www.goodreads.com/bg/book/show/12996" hreflang="bg"/>-->
-    <!--    <link rel="alternate" href="https://www.goodreads.com/ru/book/show/12996" hreflang="ru"/>-->
-    <!--    <link rel="alternate" href="https://www.goodreads.com/da/book/show/12996" hreflang="da"/>-->
-    <!--    <link rel="alternate" href="https://www.goodreads.com/cs/book/show/12996" hreflang="cs"/>-->
-    <!--    <link rel="alternate" href="https://www.goodreads.com/ka/book/show/12996" hreflang="ka"/>-->
-    <!--    <link rel="alternate" href="https://www.goodreads.com/fi/book/show/12996" hreflang="fi"/>-->
-    <!--    <link rel="alternate" href="https://www.goodreads.com/mn/book/show/12996" hreflang="mn"/>-->
-    <!--    <link rel="alternate" href="https://www.goodreads.com/ca/book/show/12996" hreflang="ca"/>-->
-    <!--    <link rel="alternate" href="https://www.goodreads.com/hu/book/show/12996" hreflang="hu"/>-->
-    <!--    <link rel="alternate" href="https://www.goodreads.com/hr/book/show/12996" hreflang="hr"/>-->
-    <!--    <link rel="alternate" href="https://www.goodreads.com/ta/book/show/12996" hreflang="ta"/>-->
-    <!--    <link rel="alternate" href="https://www.goodreads.com/sr/book/show/12996" hreflang="sr"/>-->
-    <!--    <link rel="alternate" href="https://www.goodreads.com/ko/book/show/12996" hreflang="ko"/>-->
-    <!--    <link rel="alternate" href="https://www.goodreads.com/vi/book/show/12996" hreflang="vi"/>-->
-    <!--    <link rel="alternate" href="https://www.goodreads.com/et/book/show/12996" hreflang="et"/>-->
-    <!--    <link rel="alternate" href="https://www.goodreads.com/sv/book/show/12996" hreflang="sv"/>-->
-
-
-    <!--    <link rel="alternate" href="android-app://com.goodreads/https/www.goodreads.com/book/show/12996.Othello">-->
-
-    <!--    <link rel="next" href="https://www.goodreads.com/book/show/12996.Othello?page=2">-->
-
-
-
-    <!--    <script type="text/javascript"> var ue_t0=window.ue_t0||+new Date();-->
-    <!--    </script>-->
-
-    <!--    <script type="text/javascript">-->
-    <!--        var ue_mid = "A1PQBFHBHS6YH1";-->
-    <!--        var ue_sn = "www.goodreads.com";-->
-    <!--        var ue_furl = "fls-na.amazon.com";-->
-    <!--        var ue_sid = "596-5873062-4886762";-->
-    <!--        var ue_id = "G0P6T6C4CV01TZY49Y50";-->
-    <!---->
-    <!--        (function(e){var c=e;var a=c.ue||{};a.main_scope="mainscopecsm";a.q=[];a.t0=c.ue_t0||+new Date();a.d=g;function g(h){return +new Date()-(h?0:a.t0)}function d(h){return function(){a.q.push({n:h,a:arguments,t:a.d()})}}function b(m,l,h,j,i){var k={m:m,f:l,l:h,c:""+j,err:i,fromOnError:1,args:arguments};c.ueLogError(k);return false}b.skipTrace=1;e.onerror=b;function f(){c.uex("ld")}if(e.addEventListener){e.addEventListener("load",f,false)}else{if(e.attachEvent){e.attachEvent("onload",f)}}a.tag=d("tag");a.log=d("log");a.reset=d("rst");c.ue_csm=c;c.ue=a;c.ueLogError=d("err");c.ues=d("ues");c.uet=d("uet");c.uex=d("uex");c.uet("ue")})(window);(function(e,d){var a=e.ue||{};function c(g){if(!g){return}var f=d.head||d.getElementsByTagName("head")[0]||d.documentElement,h=d.createElement("script");h.async="async";h.src=g;f.insertBefore(h,f.firstChild)}function b(){var k=e.ue_cdn||"z-ecx.images-amazon.com",g=e.ue_cdns||"images-na.ssl-images-amazon.com",j="/images/G/01/csminstrumentation/",h=e.ue_file||"ue-full-11e51f253e8ad9d145f4ed644b40f692._V1_.js",f,i;if(h.indexOf("NSTRUMENTATION_FIL")>=0){return}if("ue_https" in e){f=e.ue_https}else{f=e.location&&e.location.protocol=="https:"?1:0}i=f?"https://":"http://";i+=f?g:k;i+=j;i+=h;c(i)}if(!e.ue_inline){if(a.loadUEFull){a.loadUEFull()}else{b()}}a.uels=c;e.ue=a})(window,document);-->
-    <!---->
-    <!--        if (window.ue && window.ue.tag) { window.ue.tag('book:show:signed_in', ue.main_scope);window.ue.tag('book:show:signed_in:desktop', ue.main_scope); }-->
-    <!--    </script>-->
-
-
-    <!--    <script type="text/javascript">-->
-    <!--        if (window.Mobvious === undefined) {-->
-    <!--            window.Mobvious = {};-->
-    <!--        }-->
-    <!--        window.Mobvious.device_type = 'desktop';-->
-    <!--    </script>-->
-
-
-
-    <!--    <script src="https://s.gr-assets.com/assets/webfontloader-f5925439393a000d48096973793890d8.js"></script>-->
-    <!--    <script>-->
-    <!--        WebFont.load({-->
-    <!--            classes: false,-->
-    <!--            custom: {-->
-    <!--                families: ["Lato:n4,n7,i4", "Merriweather:n4,n7,i4"],-->
-    <!--                urls: ["https://s.gr-assets.com/assets/gr/fonts-e256f84093cc13b27f5b82343398031a.css"]-->
-    <!--            }-->
-    <!--        });-->
-    <!--    </script>-->
 
     <link rel="stylesheet" media="all" href="./css/goodreads_all.css" />
 
@@ -260,163 +183,6 @@ if (isset($_POST['rate']))
 
     <link rel="stylesheet" media="screen" href="./css/goodreads_screen.css" />
 
-    <!--    <script src="https://s.gr-assets.com/assets/desktop/libraries-41a429a5834e6352d597e2cf0b06486f.js"></script>-->
-    <!--    <script src="https://s.gr-assets.com/assets/application-e1f7a59d8a3ee82c2db20200ea66a37f.js"></script>-->
-
-    <!--    <script>-->
-    <!--        -->
-    <!--        var gptAdSlots = gptAdSlots || [];-->
-    <!--        var googletag = googletag || {};-->
-    <!--        googletag.cmd = googletag.cmd || [];-->
-    <!--        (function() {-->
-    <!--            var gads = document.createElement("script");-->
-    <!--            gads.async = true;-->
-    <!--            gads.type = "text/javascript";-->
-    <!--            var useSSL = "https:" == document.location.protocol;-->
-    <!--            gads.src = (useSSL ? "https:" : "http:") +-->
-    <!--                "//securepubads.g.doubleclick.net/tag/js/gpt.js";-->
-    <!--            var node = document.getElementsByTagName("script")[0];-->
-    <!--            node.parentNode.insertBefore(gads, node);-->
-    <!--        })();-->
-    <!--        -->
-    <!--    </script>-->
-
-    <!--    <script>-->
-    <!--        -->
-    <!--        googletag.cmd.push(function() {-->
-    <!--            googletag.pubads().setTargeting("sid", "osid.3ef9237958fcfb29a594dd991e8112c5");-->
-    <!--            googletag.pubads().setTargeting("grsession", "osid.3ef9237958fcfb29a594dd991e8112c5");-->
-    <!--            googletag.pubads().setTargeting("surface", "desktop");-->
-    <!--            googletag.pubads().setTargeting("signedin", "true");-->
-    <!--            googletag.pubads().setTargeting("gr_author", "false");-->
-    <!--            googletag.pubads().setTargeting("author", ["947","3137322","1020792","585","569","3706","799335","25885","2782"]);-->
-    <!--            googletag.pubads().setTargeting("genres", ["1","24","25","28","29","26","136","62","460","40","64","128","146","244","621","776","1053","8300","4","5","35","48","58","68","84","96","144","173","188","207","269","384","397","479","560","587","688","798","945","1024","1126","1413","1670","2093","2207","4005","5722","5737","6568"]);-->
-    <!--            googletag.pubads().setTargeting("Gender", "male");-->
-    <!--            googletag.pubads().setTargeting("Age", "20-24");-->
-    <!--            googletag.pubads().setTargeting("shelf", ["classics","plays","fiction","drama","school","literature","theatre","readforschool","poetry","tragedy"]);-->
-    <!--            googletag.pubads().setTargeting("tags", ["24","621","1","460","26","25","776","8300","146","9926"]);-->
-    <!--            googletag.pubads().setTargeting("gtargeting", "dcly0qk1t");-->
-    <!--            googletag.pubads().setTargeting("resource", "Work_995103");-->
-    <!--            googletag.pubads().enableAsyncRendering();-->
-    <!--            googletag.pubads().enableSingleRequest();-->
-    <!--            googletag.pubads().collapseEmptyDivs(true);-->
-    <!--            googletag.pubads().disableInitialLoad();-->
-    <!--            googletag.enableServices();-->
-    <!--        });-->
-    <!--        -->
-    <!--    </script>-->
-
-    <!--    <script>-->
-    <!--    -->
-    <!--        ! function(a9, a, p, s, t, A, g) {-->
-    <!--            if (a[a9]) return;-->
-    <!---->
-    <!--            function q(c, r) {-->
-    <!--                a[a9]._Q.push([c, r])-->
-    <!--            }-->
-    <!--            a[a9] = {-->
-    <!--                init: function() {-->
-    <!--                    q("i", arguments)-->
-    <!--                },-->
-    <!--                fetchBids: function() {-->
-    <!--                    q("f", arguments)-->
-    <!--                },-->
-    <!--                setDisplayBids: function() {},-->
-    <!--                _Q: []-->
-    <!--            };-->
-    <!--            A = p.createElement(s);-->
-    <!--            A.async = !0;-->
-    <!--            A.src = t;-->
-    <!--            g = p.getElementsByTagName(s)[0];-->
-    <!--            g.parentNode.insertBefore(A, g)-->
-    <!--        }("apstag", window, document, "script", "//c.amazon-adsystem.com/aax2/apstag.js");-->
-    <!---->
-    <!--        apstag.init({-->
-    <!--            pubID: '3211', adServer: 'googletag', bidTimeout: 4e3, params: { aps_privacy: '1YN' }-->
-    <!--        });-->
-    <!--    -->
-    <!--    </script>-->
-
-
-
-    <!--    <script src="https://s.gr-assets.com/assets/book/show-a22931d02749837069b3b4a4ebf40236.js"></script>-->
-
-    <!--    <script>-->
-    <!---->
-    <!--        !function(d,s,id)-->
-    <!--        {var js, fjs = d.getElementsByTagName(s)[0];-->
-    <!--            if(!d.getElementById(id))-->
-    <!--            {js=d.createElement(s);-->
-    <!--                js.id=id;-->
-    <!--                js.src='https://platform.twitter.com/widgets.js';-->
-    <!--                fjs.parentNode.insertBefore(js,fjs);-->
-    <!--            }}(document,'script','twitter-wjs');-->
-    <!---->
-    <!--    </script>-->
-
-
-
-
-
-
-    <!--    <link rel="search" type="application/opensearchdescription+xml" href="/opensearch.xml" title="Goodreads">-->
-
-    <!--    <script>-->
-    <!---->
-    <!---->
-    <!--        var GoodreadsAnalytics = GoodreadsAnalytics || {};-->
-    <!--        var _gaq = _gaq || [];-->
-    <!---->
-    <!--        GoodreadsAnalytics.push = function () {-->
-    <!--            _gaq.push.apply(_gaq, arguments);-->
-    <!--        }-->
-    <!---->
-    <!--        GoodreadsAnalytics.push(['_setAccount', 'UA-968618-1']);-->
-    <!--        GoodreadsAnalytics.push(['_setCustomVar',-->
-    <!--            1,                        // Slot 1-->
-    <!--            'User Status',            // Custom variable name-->
-    <!--            'signed_in',  // Custom variable value: signed_out, signed_in,-->
-    <!--            //   signed_in_facebook_connected, or-->
-    <!--            //   goodreads_member_previously_signed_in-->
-    <!--            2                         // Visit-level scope, which means slot 1 will be-->
-    <!--                                      //   free when the visit ends.-->
-    <!--        ]);-->
-    <!--        GoodreadsAnalytics.push(['_setCustomVar',-->
-    <!--            2,                        // Slot 2-->
-    <!--            'Device Type',            // Custom variable name-->
-    <!--            'desktop',         // Custom variable value: desktop, mobile, or-->
-    <!--            //   tablet-->
-    <!--            2                         // Visit-level scope, which means slot 2 will be-->
-    <!--                                      //   free when the visit ends.-->
-    <!--        ]);-->
-    <!--        GoodreadsAnalytics.push(['_trackPageview']);-->
-    <!---->
-    <!--        (function () {-->
-    <!--            var ga = document.createElement('script');-->
-    <!--            ga.type = 'text/javascript';-->
-    <!--            ga.async = true;-->
-    <!--            ga.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'stats.g.doubleclick.net/dc.js';-->
-    <!--            var s = document.getElementsByTagName('script')[0];-->
-    <!--            s.parentNode.insertBefore(ga, s);-->
-    <!--        })();-->
-    <!---->
-    <!---->
-    <!--    </script>-->
-
-    <!--    <meta name="description" content="Othello book. Read 6,648 reviews from the world's largest community for readers. In Othello, Shakespeare creates a powerful drama of a marriage that begi...">-->
-
-
-    <!--    <meta content='summary' name='twitter:card'>-->
-    <!--    <meta content='@goodreads' name='twitter:site'>-->
-    <!--    <meta content='Othello by William Shakespeare' name='twitter:title'>-->
-    <!--    <meta content="Othello book. Read 6,648 reviews from the world's largest community for readers. In Othello, Shakespeare creates a powerful drama of a marriage that begi..." name='twitter:description'>-->
-    <!--    <meta content='https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1459795105i/12996._UY2503_SS2503_.jpg' name='twitter:image'>-->
-    <!--    <meta content='Othello' name='twitter:image:alt'>-->
-
-
-    <!--    <meta name="verify-v1" content="cEf8XOH0pulh1aYQeZ1gkXHsQ3dMPSyIGGYqmF53690=">-->
-    <!--    <meta name="google-site-verification" content="PfFjeZ9OK1RrUrKlmAPn_iZJ_vgHaZO1YQ-QlG2VsJs" />-->
-    <!--    <meta name="apple-itunes-app" content="app-id=355833469">-->
 </head>
 
 
@@ -424,69 +190,6 @@ if (isset($_POST['rate']))
 
 
 <div class="content">
-    <!--    <script>-->
-    <!---->
-    <!--        var initializeGrfb = function() {-->
-    <!--            $grfb.initialize({-->
-    <!--                appId: "2415071772"-->
-    <!--            });-->
-    <!--        };-->
-    <!--        if (typeof $grfb !== "undefined") {-->
-    <!--            initializeGrfb();-->
-    <!--        } else {-->
-    <!--            window.addEventListener("DOMContentLoaded", function() {-->
-    <!--                if (typeof $grfb !== "undefined") {-->
-    <!--                    initializeGrfb();-->
-    <!--                }-->
-    <!--            });-->
-    <!--        }-->
-    <!--        -->
-    <!--    </script>-->
-
-    <!--    <script>-->
-    <!--        -->
-    <!--        function loadScript(url, callback) {-->
-    <!--            var script = document.createElement("script");-->
-    <!--            script.type = "text/javascript";-->
-    <!---->
-    <!--            if (script.readyState) {  //Internet Explorer-->
-    <!--                script.onreadystatechange = function() {-->
-    <!--                    if (script.readyState == "loaded" ||-->
-    <!--                        script.readyState == "complete") {-->
-    <!--                        script.onreadystatechange = null;-->
-    <!--                        callback();-->
-    <!--                    }-->
-    <!--                };-->
-    <!--            } else {  //Other browsers-->
-    <!--                script.onload = function() {-->
-    <!--                    callback();-->
-    <!--                };-->
-    <!--            }-->
-    <!---->
-    <!--            script.src = url;-->
-    <!--            document.getElementsByTagName("head")[0].appendChild(script);-->
-    <!--        }-->
-    <!---->
-    <!--        function initAppleId() {-->
-    <!--            AppleID.auth.init({-->
-    <!--                clientId : 'com.goodreads.app',-->
-    <!--                scope : 'name email',-->
-    <!--                redirectURI: 'https://www.goodreads.com/apple_users/sign_in_with_apple_web',-->
-    <!--                state: 'apple_oauth_state_29bc57ea-a5eb-4cee-9a69-22ddba5948dc'-->
-    <!--            });-->
-    <!--        }-->
-    <!---->
-    <!--        var initializeSiwa = function() {-->
-    <!--            var APPLE_SIGN_IN_JS_URL =  "https://appleid.cdn-apple.com/appleauth/static/jsapi/appleid/1/en_US/appleid.auth.js"-->
-    <!--            loadScript(APPLE_SIGN_IN_JS_URL, initAppleId);-->
-    <!--        };-->
-    <!--        if (typeof AppleID !== "undefined") {-->
-    <!--            initAppleId();-->
-    <!--        } else {-->
-    <!--            initializeSiwa();-->
-    <!--        }-->
-    <!---->
-    <!--    </script>-->
 
 
     <div class="siteHeader">
@@ -559,7 +262,7 @@ if (isset($_POST['rate']))
                                 <div class='wtrUp wtrLeft' >
                                     <form action=<?php echo "bookProfile.php?ISBN=$ISBN";?> method="post">
                                         <button class='wtrToRead'  type='submit' name="book_read" ">
-                                            <span class='progressTrigger'>Read</span>
+                                        <span class='progressTrigger'>Read</span>
                                         </button>
                                         <button class='wtrToRead'  type='submit' name="cur_read">
                                             <span class='progressTrigger'>Currently Reading</span>
@@ -568,7 +271,6 @@ if (isset($_POST['rate']))
                                             <span class='progressTrigger'>Want to Read</span>
                                         </button>
                                     </form>
-
                                 </div>
 
 
@@ -707,7 +409,7 @@ if (isset($_POST['rate']))
                                  itemtype="https://schema.org/AggregateRating">
 
 
-                                Rating: 
+                                Rating:
                                 <span itemprop="ratingValue"><?php
                                     $avg_rating = "SELECT avg(Rating.rating) as avg FROM Books,Rating where Books.ISBN=Rating.ISBN and Rating.ISBN = ".$_REQUEST['ISBN'];
                                     $avg_res = $mysql->Execute($avg_rating);
@@ -935,40 +637,6 @@ if (isset($_POST['rate']))
                 </script>
 
 
-
-
-
-
-                <script>
-                    //<![CDATA[
-                    (function (w, d, load) {
-                        var script,
-                            first = d.getElementsByTagName('SCRIPT')[0],
-                            n = load.length,
-                            i = 0,
-                            go = function () {
-                                for (i = 0; i < n; i += 1) {
-                                    script = d.createElement('SCRIPT');
-                                    script.type = 'text/javascript';
-                                    script.async = true;
-                                    script.src = load[i];
-                                    first.parentNode.insertBefore(script, first);
-                                }
-                            }
-                        if (w.attachEvent) {
-                            w.attachEvent('onload', go);
-                        } else {
-                            w.addEventListener('load', go, false);
-                        }
-                    }(window, document,
-                        ['//assets.pinterest.com/js/pinit.js',
-                            '//apis.google.com/js/plusone.js'
-                        ]
-                    ));
-
-                    //]]>
-                </script>
-
             </div>
             <div class="clear"></div>
         </div>
@@ -991,55 +659,6 @@ if (isset($_POST['rate']))
 </div>
 
 
-
-<div id="overlay" style="display:none" onclick="Lightbox.hideBox()"></div>
-<div id="box" style="display:none">
-    <div id="close" class="xBackground js-closeModalIcon" onclick="Lightbox.hideBox()" title="Close this window"></div>
-    <div id="boxContents"></div>
-    <div id="boxContentsLeftovers" style="display:none"></div>
-    <div class="clear"></div>
-</div>
-
-<div id="fbSigninNotification" style="display:none;">
-    <p>Welcome back. Just a moment while we sign you in to your Goodreads account.</p>
-    <img src="https://s.gr-assets.com/assets/facebook/login_animation-085464711e6c1ed5ba287a2f40ba3343.gif" alt="Login animation" />
-</div>
-
-
-
-
-<script>
-    //<![CDATA[
-    qcdata = {} || qcdata;
-    (function(){
-        var elem = document.createElement('script');
-        elem.src = (document.location.protocol == "https:" ? "https://secure" : "http://pixel") + ".quantserve.com/aquant.js?a=p-0dUe_kJAjvkoY";
-        elem.async = true;
-        elem.type = "text/javascript";
-        var scpt = document.getElementsByTagName('script')[0];
-        scpt.parentNode.insertBefore(elem,scpt);
-    }());
-    var qcdata = {qacct: 'p-0dUe_kJAjvkoY', uid: '129148878'};
-    //]]>
-</script>
-<noscript>
-    <img alt='Quantcast' border='0' height='1' src='//pixel.quantserve.com/pixel/p-0dUe_kJAjvkoY.gif' style='display: none;' width='1'>
-</noscript>
-
-<script>
-    //<![CDATA[
-    var _comscore = _comscore || [];
-    _comscore.push({ c1: "2", c2: "6035830", c3: "", c4: "", c5: "", c6: "", c15: ""});
-    (function() {
-        var s = document.createElement("script"), el = document.getElementsByTagName("script")[0]; s.async = true;
-        s.src = (document.location.protocol == "https:" ? "https://sb" : "http://b") + ".scorecardresearch.com/beacon.js";
-        el.parentNode.insertBefore(s, el);
-    })();
-    //]]>
-</script>
-<noscript>
-    <img style="display: none" width="0" height="0" alt="" src="https://sb.scorecardresearch.com/p?c1=2&amp;amp;c2=6035830&amp;amp;c3=&amp;amp;c4=&amp;amp;c5=&amp;amp;c6=&amp;amp;c15=&amp;amp;cv=2.0&amp;amp;cj=1" />
-</noscript>
 
 
 </body>

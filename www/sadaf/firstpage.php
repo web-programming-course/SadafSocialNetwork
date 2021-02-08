@@ -23,7 +23,7 @@
 
 
             <div class="col-2" style="margin-top: auto; margin-bottom: auto;">
-                <a href="./mylibrary.php" class="profile-link">Profile</a>
+                <!-- <a href="./mylibrary.php" class="profile-link">Profile</a> -->
             </div>
 
             <div class="col-1"></div>

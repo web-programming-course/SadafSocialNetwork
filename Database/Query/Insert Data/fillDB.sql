@@ -671,7 +671,7 @@ VALUES
 
 
 -- =============== 
-
+ 
 
 INSERT INTO `sadaf`.`Books`
 (`ISBN`,

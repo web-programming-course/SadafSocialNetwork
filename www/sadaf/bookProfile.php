@@ -14,7 +14,7 @@ $ISBN = $res->fetch()['ISBN'];
 <head prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb# good_reads: http://ogp.me/ns/fb/good_reads#">
     <title>
         <?php
-            $query = "select * from books where Books.ISBN=".$_REQUEST['ISBN'];
+            $query = "select * from Books where Books.ISBN=".$_REQUEST['ISBN'];
             $mysql = pdodb::getInstance();
             $res = $mysql-> Execute($query);
             $title = $res->fetch()['title'];

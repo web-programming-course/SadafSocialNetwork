@@ -26,9 +26,17 @@
     /etc/nginx/sites-available/default
 </div>    
 سپس برای restare باید دستور زیر را وارد می کنیم.
-    Sudo systemctl restart nginx
-حال باید تنظیمات مربوط به php.ini را که  در مسیر زیر قرار دارد عوض بکنیم:
-    /etc/php/version
+    Sudo systemctl restart nginx    
+حال نیاز است برخی تغییرات در فایل  php.ini است، این فایل در مسیر زیر قرار دارد:
+    /etc/php/<version>/fpm/php.in
+- باید مقدار short_open_path رو از off به آن on تغییر بدیم
+- در متغیر include_path باید include_path هایی که در htacess امده است را ذخیره کنیم.
+- برای اینکه بتوانیم فایل اپلود شده را دریافت کنیم، باید upload_max_filesize را نسبت به اندازه فایل ها تنظیم کنیم. همچنین file_uploads را باید on کنیم.
+
+پس از ذخیره، نیاز به restart می باشد.
+    Sudo systemctl restart php7.4 -fpm.service
+
+
 
 
 # راه اندازی پایگاه داده
@@ -69,6 +77,7 @@
 * firstpage.php : 
 
 این صفحه ورودی سایت است.لینک به صفحات دیگر در این صفحه وجود دارد. علاوه بر آن در این صفحه به کاربر پیشنهاد کتاب خواهیم داد.
+![](https://github.com/web-programming-course/SadafSocialNetwork/blob/BookReads/image/first.jpg)
 
 * BookProfile.php : 
 
@@ -76,8 +85,7 @@
 کاربر در این صفحه امکان گذاشتن نظر برای کتاب را دارد. همچنین می تواند با توجه به نظر خود به کتاب امتیاز دهد
 کاربر امکان پاسخ دادن به نظر کاربر دیگر را دارد. همچنین می تواند یک نظر را لایک کند.
 
+![](https://github.com/web-programming-course/SadafSocialNetwork/blob/BookReads/image/profile.jpg)
 
-
-# اضافه کردن صفحه به سدف
 
 </div>

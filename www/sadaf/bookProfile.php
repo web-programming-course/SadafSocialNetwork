@@ -477,16 +477,7 @@ if (isset($_POST['rate']))
                                 </div>
 
                                 <div class="buttons">
-                                    <!--
-                                    <a id="bookDataBoxShow" class="left inter actionLinkLite" style="display: none;"
-                                       href="#"
-                                       onclick="$j(&#39;#bookDataBoxShow&#39;).hide();
-                                       $j(&#39;#bookDataBoxHide&#39;).show();
-                                       $j(&#39;#bookDataBox&#39;).show();
-                                       savePreference(&#39;book_show_details_flag&#39;, 1);; return false;">
-                                        More Details...
-                                    </a>
-                                    -->
+
 
                                     <div id="bookDataBox" class="uitext" style=" margin: 10px 0">
 
@@ -590,51 +581,9 @@ if (isset($_POST['rate']))
                 </div>
 
                 <span id="rating_graph" class="rating_graph">
-    <script type="text/javascript+protovis">
-      renderRatingGraph([101917, 117158, 78761, 19921, 5572]);
-      if ($('rating_details')) {
-        $('rating_details').insert({top: $('rating_graph')})
-      }
-    </script>
+
   </span>
 
-                <script>
-                    //<![CDATA[
-                    if (typeof window.uet == 'function') { window.uet('af'); }
-                    //]]>
-                </script>
-
-                <script>
-                    //<![CDATA[
-
-                    $j(document).ready(function() {
-                        if (typeof window.uet == "function") {
-                            window.uet("bb");
-
-                            if (window.ue &&
-                                window.ue.identifier &&
-                                typeof window.ue.identifier.newRID == "function") {
-                                var scope = "delayable_book_show";
-                                window.ues("ctb", scope, "1");
-                                var rid = window.ue.identifier.newRID();
-                                window.ues("id", scope, rid);
-                                window.uet("tc", scope);
-                                // Only add csm_scope to params if we successfully initialized AJAX metrics
-                                ;
-                            }
-                        }
-
-                        $j("#lazy_loadable_view").load(
-                            "/book/delayable_book_show/12996?page=1",
-                            {"id":"12996.Othello","csm_scope":"delayable_book_show"},
-                            function() {
-                                $j(document).trigger("lazyload:complete");
-                            }
-                        );
-                    });
-
-                    //]]>
-                </script>
 
 
             </div>
@@ -649,16 +598,7 @@ if (isset($_POST['rate']))
     <div class="clear"></div>
 
 
-
-    <script>
-        //<![CDATA[
-        if (typeof window.uet == 'function') { window.uet('be'); }
-        //]]>
-    </script>
-
 </div>
-
-
 
 
 </body>

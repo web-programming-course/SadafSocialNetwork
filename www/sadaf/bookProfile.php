@@ -1,10 +1,22 @@
 
+
 <?php
 include "header.inc.php";
 $query = "select * from Books where Books.ISBN=".$_REQUEST['ISBN'];
 $mysql = pdodb::getInstance();
 $res = $mysql-> Execute($query);
 $ISBN = $res->fetch()['ISBN'];
+
+$userid = $_SESSION['UserID'];
+$query = "select * from AccountSpecs where UserID='$userid'";
+$mysql = pdodb::getInstance();
+$res = $mysql->Execute($query);
+$id = $res->fetch()['AccountSpecID'];
+
+$query = "Select * From sadaf.Rating where ISBN=$ISBN and AccountSpecID=$id";
+$mysql = pdodb::getInstance();
+$res = $mysql->Execute($query);
+$rating=  $res->fetch()['rating'];
 ?>
 <?php
 
@@ -565,8 +577,6 @@ if (isset($_POST['rate']))
                                     function starColor(element){
 
                                         var stars = ["l1","l2","l3","l4","l5"];
-                                        console.log(element);
-                                        var  i =0
                                         for (i =0  ; i < 5 ; i){
 
                                             e = document.getElementById(stars[i]);
@@ -641,8 +651,19 @@ if (isset($_POST['rate']))
                                         </a>
                                     </div>
                                 </div>
-                                
 
+
+                                <script>
+                                    function initStars(value){
+                                        var stars = ["l1","l2","l3","l4","l5"];
+                                        for (i=0 ; i<value ; i++){
+                                            e = document.getElementById(stars[i]);
+                                            e.classList.remove("off");
+                                            e.classList.add("on");
+                                        }
+                                    }
+                                </script>
+                                <?php echo  "<script> initStars($rating); </script>";?>
                             </div>
 
 

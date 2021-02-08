@@ -34,10 +34,14 @@
 # راه اندازی پایگاه داده
 
 برای ساخت پایگاه داده، ابتدا باید پایگاه داده سدف را ساخت. به این منظور فایل simple_sadaf_database.sql را که شامل table های اصلی برنامه سدف است را ران می کنیم.
+
 حال باید پایگاه داده مربوط به BookReads ران ران کنیم. به این منظور کد createDatabase.sql در مسیر زیر را اجرا می کنیم:
-Database/Query/createDatabase.sql
+
+    Database/Query/createDatabase.sql
+
 برای اضافه کردن داده نیز فایل fillDB.sql می دهد. این فایل در مسیر زیر قرار دارد
-Database/Query/Insert\ Data/fillDB.sql
+
+    Database/Query/Insert\ Data/fillDB.sql
 
 
 

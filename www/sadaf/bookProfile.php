@@ -6,7 +6,45 @@ $mysql = pdodb::getInstance();
 $res = $mysql-> Execute($query);
 $ISBN = $res->fetch()['ISBN'];
 ?>
+<?php
 
+if (isset($_POST['write_comment']))
+{
+    $userid = $_SESSION['UserID'];
+    $query = "select * from AccountSpecs where UserID='$userid'";
+    $mysql = pdodb::getInstance();
+    $res = $mysql->Execute($query);
+    $id = $res->fetch()['AccountSpecID'];
+    $comment = $_POST['comment'];
+
+
+
+    $query = "INSERT INTO sadaf.Comments (ISBN,ID,WAccountSpecID,content) 
+                                    VALUES ($ISBN,$id,$id,'$comment')";
+    $res = $mysql->Execute($query);
+
+
+}
+
+?>
+<?php
+if (isset($_POST['delete_comment']))
+{
+
+    $userid = $_SESSION['UserID'];
+    $query = "select * from AccountSpecs where UserID='$userid'";
+    $mysql = pdodb::getInstance();
+    $res = $mysql->Execute($query);
+    $id = $res->fetch()['AccountSpecID'];
+    $comment = $_POST['comment'];
+
+
+
+    $query = "DELETE From sadaf.Comments WHERE Comments.ID = $id and  Comments.ISBN = '$ISBN'";
+    $res = $mysql->Execute($query);
+
+}
+?>
 
 <!DOCTYPE html>
 <html class="desktop
@@ -627,6 +665,15 @@ $ISBN = $res->fetch()['ISBN'];
                                     echo "<td>";
                                     echo "Comment: ".$rec['content'];
                                     echo "</td>";
+
+                                    if($newID== $_SESSION["UserID"]){
+                                        echo "<td style='padding-left: 100px'>";
+                                        echo "<form action='BookProfile.php?ISBN=$ISBN' method='post'>
+                                        <input type='submit' value='Delete Comment' name='delete_comment'>
+                                        </form>";
+                                        echo "</td>";
+                                    }
+
                                     echo "</tr>";
                                     echo "</table>";
                                     echo "<div style='border-bottom:1px solid #D8D8D8;margin:0.5em 0'></div>";
@@ -634,31 +681,25 @@ $ISBN = $res->fetch()['ISBN'];
                                 ?>
                                 <div>
                                     Add comments:<br>
-                                    <form action="BookProfile.php?ISBN=<?php echo $ISBN;?>" method="post">
-                                        <input type="text" id="comment" name="comment" style="width: 300px; height: 100px">
-                                        <input type="submit" value="Send" name="write_comment">
-                                    </form>
-                                </div>
-                                <?php
-
-                                if (isset($_POST['write_comment']))
-                                {
-
+                                    <?php
                                     $userid = $_SESSION['UserID'];
-                                    $query = "select * from AccountSpecs where UserID='$userid'";
+                                    $query = "select * from AccountSpecs,Comments where AccountSpecs.AccountSpecID=Comments.WAccountSpecID  
+                                      and AccountSpecs.UserID='$userid'  and Comments.ISBN=$ISBN ";
                                     $mysql = pdodb::getInstance();
                                     $res = $mysql->Execute($query);
-                                    $accID = $res->fetch()['AccountSpecID'];
-                                    $comment = $_POST['comment'];
+                                    if ($res->fetch()) {
+                                        echo "You have Send your comment";
+                                    }
+                                    else{
+                                        echo "<form action='BookProfile.php?ISBN=$ISBN' method='post'>
+                                        <input type='text' id='comment' name='comment' style='width: 300px; height: 100px'>
+                                        <input type='submit' value='Send' name='write_comment'>
+                                        </form>";
+                                    }
 
-                                    $query = "INSERT INTO sadaf.Comments (ISBN,WAccountSpecID,content) 
-                                    VALUES ($ISBN,$accID,'$comment')";
-                                    //$res = $mysql->Execute($query);
+                                    ?>
+                                </div>
 
-
-                                }
-
-                                ?>
                             </div>
 
                         </div>

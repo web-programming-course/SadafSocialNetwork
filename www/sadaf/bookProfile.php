@@ -258,7 +258,7 @@ if (isset($_POST['rate']))
 
                             </div>
 
-                            <div class='wtrButtonContainer' style="margin-top: -480px">
+                            <div class='wtrButtonContainer' >
                                 <div class='wtrUp wtrLeft' >
                                     <form action=<?php echo "bookProfile.php?ISBN=$ISBN";?> method="post">
                                         <button class='wtrToRead'  type='submit' name="book_read" ">
@@ -384,9 +384,9 @@ if (isset($_POST['rate']))
                                 <span class='by'>
                                     by
                                 </span>
-                                <span itemprop='author' itemscope='' itemtype='http://schema.org/Person'>
+                                <span itemprop='author' itemscope='' >
                                     <div class='authorName__container'>
-                                        <a class="authorName" itemprop="url" href="https://www.goodreads.com/author/show/947.William_Shakespeare">
+                                        <a class="authorName" itemprop="url"">
                                             <span itemprop="name">
                                                 <?php
                                                 $query = "select * from Books where Books.ISBN=".$_REQUEST['ISBN'];

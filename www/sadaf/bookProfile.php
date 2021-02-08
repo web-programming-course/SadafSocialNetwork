@@ -46,6 +46,104 @@ if (isset($_POST['delete_comment']))
 }
 ?>
 
+<?php
+$userid = $_SESSION['UserID'];
+$query = "select * from AccountSpecs where UserID='$userid'";
+$mysql = pdodb::getInstance();
+$res = $mysql->Execute($query);
+$id = $res->fetch()['AccountSpecID'];
+
+$query = "Select * From sadaf.Connects where ISBN=$ISBN and AccountSpecID=$id";
+$mysql = pdodb::getInstance();
+$res = $mysql->Execute($query);
+$rec=  $res->fetch();
+if ($rec){
+    if (isset($_POST['book_read']))
+    {
+
+        $query = "UPDATE sadaf.Connects
+        SET state = 0
+        where ISBN=$ISBN and AccountSpecID=$id";
+        $res = $mysql->Execute($query);
+
+    }
+    if (isset($_POST['cur_read']))
+    {
+        $query = "UPDATE sadaf.Connects
+        SET state = 1
+        where ISBN=$ISBN and AccountSpecID=$id";
+        $res = $mysql->Execute($query);
+
+    }
+    if (isset($_POST['want_read']))
+    {
+        $query = "UPDATE sadaf.Connects
+        SET state = 2
+        where ISBN=$ISBN and AccountSpecID=$id";
+        $res = $mysql->Execute($query);
+
+    }
+
+}
+else{
+    if (isset($_POST['book_read']))
+    {
+
+        $query = "INSERT INTO sadaf.Connects (AccountSpecID,donePages,state,ISBN)
+        VALUE ('$id',0,0,$ISBN)";
+        $res = $mysql->Execute($query);
+
+    }
+    if (isset($_POST['cur_read']))
+    {
+        $query = "INSERT INTO sadaf.Connects (AccountSpecID,donePages,state,ISBN)
+        VALUE ('$id',0,1,$ISBN)";
+        $res = $mysql->Execute($query);
+
+    }
+    if (isset($_POST['want_read']))
+    {
+        $query = "INSERT INTO sadaf.Connects (AccountSpecID,donePages,state,ISBN)
+        VALUE ('$id',0,2,$ISBN)";
+        $res = $mysql->Execute($query);
+
+    }
+}
+
+?>
+
+<?php
+if (isset($_POST['rate']))
+{
+
+    $rating  =$_POST['rate'];
+
+    $userid = $_SESSION['UserID'];
+    $query = "select * from AccountSpecs where UserID='$userid'";
+    $mysql = pdodb::getInstance();
+    $res = $mysql->Execute($query);
+    $id = $res->fetch()['AccountSpecID'];
+
+    $query = "Select * From sadaf.Rating where ISBN=$ISBN and AccountSpecID=$id";
+    $mysql = pdodb::getInstance();
+    $res = $mysql->Execute($query);
+    $rec=  $res->fetch();
+    if ($rec){
+        $query = "UPDATE sadaf.Rating
+        SET rating = $rating
+        where ISBN=$ISBN and AccountSpecID=$id";
+        $res = $mysql->Execute($query);
+    }
+    else{
+
+        $query = "INSERT INTO sadaf.Rating (AccountSpecID,rating,ISBN)
+        VALUE ('$id',$rating,$ISBN)";
+            $res = $mysql->Execute($query);
+
+    }
+
+}
+?>
 <!DOCTYPE html>
 <html class="desktop
 ">
@@ -447,14 +545,14 @@ if (isset($_POST['delete_comment']))
 
                             <div class='wtrButtonContainer' style="margin-top: -480px">
                                 <div class='wtrUp wtrLeft' >
-                                    <form action="" method="post">
-                                        <button class='wtrToRead'  type='submit'>
+                                    <form action=<?php echo "bookProfile.php?ISBN=$ISBN";?> method="post">
+                                        <button class='wtrToRead'  type='submit' name="book_read" ">
                                             <span class='progressTrigger'>Read</span>
                                         </button>
-                                        <button class='wtrToRead'  type='submit'>
+                                        <button class='wtrToRead'  type='submit' name="cur_read">
                                             <span class='progressTrigger'>Currently Reading</span>
                                         </button>
-                                        <button class='wtrToRead' type='submit'>
+                                        <button class='wtrToRead' type='submit' name="want_read">
                                             <span class='progressTrigger'>Want to Read</span>
                                         </button>
                                     </form>
@@ -488,6 +586,32 @@ if (isset($_POST['delete_comment']))
                                         }
                                     }
                                 </script>
+
+
+                                <script>
+                                    function post(path, params, method='post') {
+                                        // The rest of this code assumes you are not using a library.
+                                        // It can be made less wordy if you use one.
+                                        const form = document.createElement('form');
+                                        form.method = method;
+                                        form.action = path;
+
+                                        for (const key in params) {
+                                            if (params.hasOwnProperty(key)) {
+                                                const hiddenField = document.createElement('input');
+                                                hiddenField.type = 'hidden';
+                                                hiddenField.name = key;
+                                                hiddenField.value = params[key];
+
+                                                form.appendChild(hiddenField);
+                                            }
+                                        }
+
+                                        document.body.appendChild(form);
+                                        form.submit();
+                                    }
+                                </script>
+
                                 <div class='ratingStars wtrRating' style="margin-left: -40px">
                                     <div class='starsErrorTooltip hidden'>
                                         Error rating book. Refresh and try again.
@@ -496,23 +620,23 @@ if (isset($_POST['delete_comment']))
                                     <div class='clearRating uitext'>Clear rating</div>
                                     <div class="stars" data-resource-id="12996" data-user-id="129148878" data-submit-url="/review/rate/12996?page_referrer=https%3A%2F%2Fwww.goodreads.com%2F&page_url=%2Fbook%2Fshow%2F12996.Othello&qid=GSbtI3R7Hp&rank=1&stars_click=true&wtr_button_id=1_book_12996" data-rating="0">
                                         <a class="star off" title="did not like it"  id="l1"
-                                           onmouseover="starColor(this)" onclick="rate">
+                                           onmouseover="starColor(this)" onclick="post('<?php echo 'BookProfile.php?ISBN='.$ISBN?>',{'rate':1},'post')">
                                             1 of 5 stars
                                         </a>
                                         <a class="star off" title="it was ok" id="l2"
-                                           onmouseover="starColor(this)" onclick="rate">
+                                           onmouseover="starColor(this)" onclick="post('<?php echo 'BookProfile.php?ISBN='.$ISBN?>',{'rate':2},'post')">
                                             2 of 5 stars
                                         </a>
                                         <a class="star off" title="liked it" id="l3"
-                                           onmouseover="starColor(this)" onclick="rate">
+                                           onmouseover="starColor(this)" onclick="post('<?php echo 'BookProfile.php?ISBN='.$ISBN?>',{'rate':3},'post')">
                                             3 of 5 stars
                                         </a>
                                         <a class="star off" title="really liked it" id="l4"
-                                           onmouseover="starColor(this)" onclick="rate">
+                                           onmouseover="starColor(this)" onclick="post('<?php echo 'BookProfile.php?ISBN='.$ISBN?>',{'rate':4},'post')">
                                             4 of 5 stars
                                         </a>
                                         <a class="star off" title="it was amazing" id="l5"
-                                           onmouseover="starColor(this)" onclick="rate">
+                                           onmouseover="starColor(this)" onclick="post('<?php echo 'BookProfile.php?ISBN='.$ISBN?>',{'rate':5},'post')">
                                             5 of 5 stars
                                         </a>
                                     </div>
@@ -600,21 +724,7 @@ if (isset($_POST['delete_comment']))
                                 </div>
                             </div>
 
-                            <div id=buyButtonContainer class="uitext buttons buyableFeature u-marginTopXSmall u-paddingBottomXSmall u-bottomGrayBorder" data-book-id=12996 >
 
-                                <div class="u-positionRelative">
-                                    <h2 class='buyButtonContainer__title u-inlineBlock'%>Get A Copy</h2>
-                                </div>
-
-                                <ul class="buyButtonBar left">
-                                    <li>
-                                        <a class="buttonBar" href="/ebooks/download/12996.Othello">
-                                            Download eBook
-                                        </a>
-                                    </li>
-                                </ul>
-                                <div class="clear"></div>
-                            </div>
 
 
                             <div id="details" class="uitext darkGreyText">
